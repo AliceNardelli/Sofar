@@ -1,0 +1,48 @@
+        #chiedo bluebox
+        #chiedo centro
+        #chiedo tavolo
+        #settati ostacolo del tavolo
+        
+        
+        #for 5
+		#chiedo un cubo (E C I G M)
+		#vedere se è a destra o sinista
+		       #se destra
+		       (gripper destro)
+		       1-lo raggiungo
+		       2-scendo a prenderlo
+		       3-salgo in quota
+		       4-vado al centro
+		       5-scendo in quota
+		       (gripper snx)
+		       6-raggiungo il centro
+		       7-scendo in quota
+		       8-mi alzo
+		       9-raggiungo box
+		       10-faccio cadere cubo
+		       #se snx
+		       1-lo raggiungo
+		       2-scendo a prenderlo
+		       3-salgo in quota
+		       4-vado al centro
+		       5-rilascio
+		       
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		OGNUNA DI QUESTE FASI CHIAMA IL go_to_pose goal quindi fa queste cose qui:
+		#chiedo frame umono     
+		#metto gli ostacoli dell'uomo (chiedo a tf list posizioni uomo) CILINDRI
+		#plan
+		#faccio eseguire (go_to_pose_goal)
+		#cotrollo posizioni del robot di riposo/ do tanti piani in serie??
+		#rimuovo ostacoli uomo
+       
+       
+      
