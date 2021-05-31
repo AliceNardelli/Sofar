@@ -5,7 +5,7 @@ tf_listener
             
        
 feasability_planner
-            
+            A B D F H L
 
             blocco posizione
             E       0
@@ -157,7 +157,7 @@ PSEUDOCODE snx
                     if working false:
                          human_collision()
                          go_to_pose_goal()
-                             x=x scatola
+                             x=x scatola + rand
                              y=y scatola
                              z=z 
                    else:

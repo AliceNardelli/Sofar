@@ -12,7 +12,8 @@ import geometry_msgs.msg
 from math import pi
 from std_msgs.msg import String
 from moveit_commander.conversions import pose_to_list
-from std_srvs.srv import *
+from human_baxter_collaboration.srv import Transformation
+from human_baxter_collaboration.msg import BaxterTrajectory
 
 def all_close(goal, actual, tolerance):
     """
@@ -36,11 +37,11 @@ def all_close(goal, actual, tolerance):
     return True
 
 
-class GripperCommander(object):
+class GripperCommander():
     
 
-    def _init_(self):
-        super(GripperCommander, self)._init_()
+    def __init__(self):
+        
         moveit_commander.roscpp_initialize(sys.argv)
         #rospy.init_node("FSM", anonymous=True)
         self.gripper = moveit_commander.RobotCommander() 
@@ -49,12 +50,12 @@ class GripperCommander(object):
         print(self.group_name)
         self.move_group = moveit_commander.MoveGroupCommander(self.group_name)
         self.trajectory_pub = rospy.Publisher('/baxter_moveit_trajectory',
-                                                   human_baxter_collaboration.msg.BaxterTrajectory,
+                                                   BaxterTrajectory,
                                                    queue_size=20)
         
-        self.planning_frame= move_group.get_planning_frame()
+        self.planning_frame= self.move_group.get_planning_frame()
        
-        self.eef_link = move_group.get_end_effector_link()
+        self.eef_link = self.move_group.get_end_effector_link()
         print("============ End effector link: %s" % self.eef_link)
 
         self.group_names = self.gripper.get_group_names()
@@ -72,30 +73,31 @@ class GripperCommander(object):
     def go_to_pose_goal(self, pose_goal):      
         
     
-        (self.move_group).set_pose_target(pose_goal)
+        (self.move_group).set_pose_target(pose_goal,)
         #plan+execute
-        plan=human_baxter_collaboration.msg.BaxterTrajectory()
-        plan = move_group.plan()
-        self.trajectory_publish.publish(plan)
-        rospy.loginfo (plan)
-        move_group.stop()
         
-        move_group.clear_pose_targets()
+        plan = self.move_group.plan()
+        self.trajectory_pub.publish(plan)
+        rospy.loginfo (plan)
+        self.move_group.stop()
+        
+        self.move_group.clear_pose_targets()
         current_pose = self.move_group.get_current_pose().pose
         return all_close(pose_goal, current_pose, 0.01)
 
 
 if __name__ == "__main__":
         
-        rospy.init_node("FSM", anonymous=True)
+        rospy.init_node("FSM")
         client_trans= rospy.ServiceProxy('transform', Transformation)
+        blue_box = geometry_msgs.msg.TransformStamped()
         blue_box=client_trans('BlueBox')
         box=['E','C','I','G','M']
         t=client_trans('A')
         goal_pose = geometry_msgs.msg.Pose() 
         goal_pose.position.x = 3
         goal_pose.position.y = 3
-        goal_pose.position.y = 3
+        goal_pose.position.z = 3
         goal_pose.orientation.w = 3
         #g_left = GripperCommander("left_arm")
         g_right = GripperCommander()

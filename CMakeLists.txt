@@ -12,6 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
   controller_manager
   roslaunch
   trajectory_msgs
+  message_generation
+  tf2_msgs
 )
 roslaunch_add_file_check(launch)
 
@@ -25,7 +27,7 @@ generate_messages(
   std_msgs
   moveit_msgs
   sensor_msgs
-
+  tf2_msgs
 )
 
 catkin_package()
