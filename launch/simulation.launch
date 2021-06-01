@@ -1,0 +1,8 @@
+<launch>
+    <arg name="middleware" default= "False" />
+    
+    <param name="middleware" value="$(arg middleware)" />
+    <node name="feasability_planner" pkg="human_baxter_collaboration" type="feasability_planner.py" args="--wait" output="screen"  />
+    <node name="tf_listener" pkg="human_baxter_collaboration" type="tf_listener.py" args="--wait" output="screen" />
+    
+</launch>

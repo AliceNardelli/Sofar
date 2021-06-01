@@ -49,21 +49,23 @@ class GripperCommander():
      
 
 
-    def go_to_pose_goal(self, pose_goal, eef_link):      
+    def go_to_pose_goal(self, pose_goal):      
         
-    
-        (self.move_group).set_pose_target(pose_goal, eef_link)
-        
+        #(self.move_group).set_start_state(*((self.move_group).getCurrentState()))
+        (self.move_group).set_start_state(self.gripper.get_current_state())
+        #(self.move_group).set_goal_tolerance(0.5)
+        (self.move_group).set_pose_target(pose_goal, self.eef_link)
+        #(self.move_group).set_pose_target(pose_goal)
         plan = self.move_group.plan()
-        self.trajectory_pub.publish(plan)
+        #self.trajectory_pub.publish(plan)
         rospy.loginfo (plan)
         self.move_group.stop()
         
         self.move_group.clear_pose_targets()
         current_pose = self.move_group.get_current_pose().pose
-        return all_close(pose_goal, current_pose, 0.01)
+        return self.all_close(pose_goal, current_pose, 0.01)
         
-    def all_close(goal, actual, tolerance):
+    def all_close(self, goal, actual, tolerance):
         """
         Convenience method for testing if a list of values are within a tolerance of their counterparts in another list
         @param: goal       A list of floats, a Pose or a PoseStamped
@@ -77,10 +79,10 @@ class GripperCommander():
                     return False
 
         elif type(goal) is geometry_msgs.msg.PoseStamped:
-            return all_close(goal.pose, actual.pose, tolerance)
+            return self.all_close(goal.pose, actual.pose, tolerance)
 
         elif type(goal) is geometry_msgs.msg.Pose:
-            return all_close(pose_to_list(goal), pose_to_list(actual), tolerance)
+            return self.all_close(pose_to_list(goal), pose_to_list(actual), tolerance)
 
         return True
 
@@ -88,16 +90,20 @@ class GripperCommander():
 if __name__ == "__main__":
         
         rospy.init_node("MoveIt_try")
-
+        client_trans= rospy.ServiceProxy('transform', Transformation)
+        trans=client_trans('BlueBox')
+      
         goal_pose = geometry_msgs.msg.Pose() 
-        goal_pose.position.x = 3
-        goal_pose.position.y = 3
-        goal_pose.position.z = 3
-        goal_pose.orientation.w = 3
+        goal_pose.position.x = trans.transform.transform.translation.x
+        goal_pose.position.y = trans.transform.transform.translation.y
+        goal_pose.position.z = trans.transform.transform.translation.z
+        goal_pose.orientation.x = trans.transform.transform.rotation.x
+        goal_pose.orientation.y = trans.transform.transform.rotation.y
+        goal_pose.orientation.z= trans.transform.transform.rotation.z
+        goal_pose.orientation.w = trans.transform.transform.rotation.w
         #g_left = GripperCommander("left_arm")
         g_right = GripperCommander()
-        #g_left.go_to_pose_goal(goal_pose)
-
-        g_right.go_to_pose_goal(goal_pose, g_right.eef_link)
+      
+        g_right.go_to_pose_goal(goal_pose)
         rospy.spin()
 

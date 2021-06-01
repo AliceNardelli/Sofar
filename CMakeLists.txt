@@ -37,6 +37,9 @@ catkin_install_python(PROGRAMS
   scripts/server_endpoint_hrc.py
   scripts/tf_listener.py
   scripts/FSM.py
+  scripts/feasability_planner.py
+  scripts/fsm_right.py
+  scripts/MoveIt_try.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
