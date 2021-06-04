@@ -14,12 +14,10 @@ from human_baxter_collaboration.msg import BlocksState
 import math
 
 
-def distance_between_blocks(f_block, s_block, threshold):
-    dis = math.sqrt((f_block.transform.transform.translation.y -
-                     s_block.transform.transform.translation.y)**2 +
-                    (f_block.transform.transform.translation.x -
-                     s_block.transform.transform.translation.x)**2)
-                  
+def distance_between_blocks(f_block,s_block,threshold):
+    dis = math.sqrt((f_block.transform.transform.translation.x - s_block.transform.transform.translation.x)**2 +
+                    (f_block.transform.transform.translation.y - s_block.transform.transform.translation.y)**2)            
+
     if dis < threshold:
 
         if f_block.transform.transform.translation.z <= s_block.transform.transform.translation.z:
@@ -29,36 +27,7 @@ def distance_between_blocks(f_block, s_block, threshold):
     else:
         return False
 
-def distance_between_blocks_blue(f_block, s_block, threshold):
-    dis = math.sqrt((f_block.transform.transform.translation.y -
-                     s_block.transform.transform.translation.y)**2 +
-                    (f_block.transform.transform.translation.z -
-                     s_block.transform.transform.translation.z)**2)
-    print(dis)                 
-    if dis < threshold:
 
-        if f_block.transform.transform.translation.x <= s_block.transform.transform.translation.x:
-            return True
-        else:
-            return False
-    else:
-        return False
-
-
-def distance_between_blocks_red(f_block, s_block, threshold):
-    dis = math.sqrt((f_block.transform.transform.translation.y +
-                     s_block.transform.transform.translation.x)**2 +
-                    (f_block.transform.transform.translation.z -
-                     s_block.transform.transform.translation.z)**2)
-    
-    if dis < threshold:
-
-        if f_block.transform.transform.translation.x <= s_block.transform.transform.translation.y:
-            return True
-        else:
-            return False
-    else:
-        return False
 
 
 if __name__ == '__main__':
@@ -86,27 +55,31 @@ if __name__ == '__main__':
             for j in range(11):
                 if i != j:
                     other_block = client_trans(blocks_id[j])
+                    #print(other_block)
+                    #print(blocks_id[j])
+                    #print(referred_block)
+                    #print(blocks_id[i])
                     if j < 5:
                         crowded = distance_between_blocks(
-                            referred_block, other_block, 0.1)
+                            referred_block, other_block, 0.05)
                     else:
                         crowded = distance_between_blocks(
-                            referred_block, other_block, 0.1)
+                            referred_block, other_block, 0.05)
                     
                 if crowded:
                     
                     blocks_state[i] = 4
                     break
-                print('\n')
+               
             if not crowded:
-                if referred_block.transform.transform.translation.y > 0:
+                if -referred_block.transform.transform.translation.y > 0:
                     blocks_state[i] = 1
 
-                if referred_block.transform.transform.translation.y == 0:
+                if -referred_block.transform.transform.translation.y == 0:
                     blocks_state[i] = 2
                 # setto parametro middleplacent true RICORDA
 
-                if referred_block.transform.transform.translation.y < 0:
+                if -referred_block.transform.transform.translation.y < 0:
                     blocks_state[i] = 3
 
                 if distance_between_blocks(
