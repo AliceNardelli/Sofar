@@ -42,7 +42,7 @@ class GripperCommander():
         self.gripper = moveit_commander.RobotCommander()
         rospy.sleep(1)
         self.scene = moveit_commander.PlanningSceneInterface()
-        self.group_name = "right_arm"
+        self.group_name = "left_arm"
         self.move_group = moveit_commander.MoveGroupCommander(self.group_name)
 
         self.planning_frame = self.move_group.get_planning_frame()
@@ -64,13 +64,13 @@ class GripperCommander():
         # joint_state.header = Header()
         joint_state.header.stamp = rospy.Time.now()
         joint_state.name = [
-            'right_s0',
-            'right_s1',
-            'right_e0',
-            'right_e1',
-            'right_w0',
-            'right_w1',
-            'right_w2']
+            'left_s0',
+            'left_s1',
+            'left_e0',
+            'left_e1',
+            'left_w0',
+            'left_w1',
+            'left_w2']
         joint_state.position = array_states
         moveit_robot_state = RobotState()
         moveit_robot_state.joint_state = joint_state
@@ -80,7 +80,7 @@ class GripperCommander():
         plan = self.move_group.plan()
         msg = BaxterTrajectory()
         msg.trajectory.append(plan[1])
-        msg.arm = "right"
+        msg.arm = "left"
         pub.publish(msg)
         self.move_group.stop()
 
@@ -128,13 +128,13 @@ class GripperCommander():
         working = True
 
     def difference(self, a, b, threshold):
-        
+        #rospy.loginfo(np.abs(a - b))
         return np.abs(a - b) < threshold
 
     def fsm(self):
         global x_goal_trans, y_goal_trans, state, blocks_array, end, working, blocks_id
         global ee, selected_position
-        global x_mid, y_mid, z_mid
+        global x_box, y_box, z_box
         global x_goal_trans, y_goal_trans, z_goal_trans
 
         if state == 0:  # rest
@@ -144,7 +144,7 @@ class GripperCommander():
                 end = True
             else:
                 for i in range(0, 5):
-                    if blocks_array[i] == 1:
+                    if blocks_array[i] == 2 or blocks_array[i] == 3:
                         state = 1
         if state == 1:  # reaching
             x_ee = ee.position.x
@@ -152,9 +152,16 @@ class GripperCommander():
             z_ee = ee.position.z
             if not working:
                 print("stato1")
-                # middleware = rospy.get_param('middleware')
-                for j in range(5):
-                        if blocks_array[j] == 1:
+                middleware = rospy.get_param('middleware')
+                #middleware = False
+                if middleware:
+                    for j in range(5):
+                        if blocks_array[j] == 2:
+                            selected_position = j
+                            break
+                else:  # mettiamo i blocchi in modo tale che i primi a essere presi sono quelli a destra?
+                    for j in range(5):
+                        if blocks_array[j] == 3:
                             selected_position = j
                             break
 
@@ -173,6 +180,8 @@ class GripperCommander():
                 self.go_to_pose_goal(goal_pose)
             else:
 
+                # rospy.loginfo(x_ee)
+                # rospy.loginfo(x_goal_trans)
                 if self.difference(
                         x_goal_trans,
                         x_ee,
@@ -180,9 +189,7 @@ class GripperCommander():
                         y_goal_trans,
                         y_ee,
                         0.01):
-                    print(x_ee)
-                    print(y_ee)
-                    print(z_ee)
+                    #rospy.loginfo("dentro if")
                     self.box_name = 'lowerarm_r'
                     self.remove_box()
                     self.box_name = 'lowerarm_l'
@@ -214,9 +221,7 @@ class GripperCommander():
             else:
 
                 if self.difference(z_goal_trans, z_ee, 0.01):
-                    print(x_ee)
-                    print(y_ee)
-                    print(z_ee)
+
                     self.box_name = 'lowerarm_r'
                     self.remove_box()
                     self.box_name = 'lowerarm_l'
@@ -227,7 +232,7 @@ class GripperCommander():
             x_ee = ee.position.x
             y_ee = ee.position.y
             z_ee = ee.position.z
-
+         
             if not working:
                 print('stato 3')
                 self.human_collision()
@@ -245,16 +250,14 @@ class GripperCommander():
             else:
 
                 if self.difference(1.2, z_ee, 0.01):
-                    print(x_ee)
-                    print(y_ee)
-                    print(z_ee)
+
                     self.box_name = 'lowerarm_r'
                     self.remove_box()
                     self.box_name = 'lowerarm_l'
                     self.remove_box()
                     state = 4
                     working = False
-
+                    rospy.set_param("middleware",False)
         if state == 4:  # raggiungo la scatola
 
             x_ee = ee.position.x
@@ -262,15 +265,18 @@ class GripperCommander():
             z_ee = ee.position.z
             if not working:
                 print('stato 4')
-                box = client_trans('MiddlePlacementN')
-                x_mid = box.transform.transform.translation.x
-                y_mid = box.transform.transform.translation.y
-                z_mid = box.transform.transform.translation.z
+                box = client_trans('Bluebox')
+                x_box = box.transform.transform.translation.x
+                y_box = box.transform.transform.translation.y
+                z_box = box.transform.transform.translation.z
+                print(x_box)
+                print(y_box)
+                print(z_box)
                 self.human_collision()
 
                 goal_pose = geometry_msgs.msg.Pose()
-                goal_pose.position.x = x_mid
-                goal_pose.position.y = y_mid
+                goal_pose.position.x = x_box
+                goal_pose.position.y = y_box
                 goal_pose.position.z = 1.2
                 goal_pose.orientation.x = 0
                 goal_pose.orientation.y = -1
@@ -280,15 +286,12 @@ class GripperCommander():
             else:
 
                 if self.difference(
-                        x_mid,
+                        x_box,
                         x_ee,
                         0.01) & self.difference(
-                        y_mid,
+                        y_box,
                         y_ee,
                         0.01):
-                    print(x_ee)
-                    print(y_ee)
-                    print(z_ee)
 
                     self.box_name = 'lowerarm_r'
                     self.remove_box()
@@ -307,7 +310,7 @@ class GripperCommander():
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_ee
                 goal_pose.position.y = y_ee
-                goal_pose.position.z = z_mid
+                goal_pose.position.z = z_box+0.2
                 goal_pose.orientation.x = 0
                 goal_pose.orientation.y = -1
                 goal_pose.orientation.z = 0
@@ -315,35 +318,7 @@ class GripperCommander():
                 self.go_to_pose_goal(goal_pose)
             else:
 
-                if self.difference(z_mid, z_ee, 0.01):
-
-                    self.box_name = 'lowerarm_r'
-                    self.remove_box()
-                    self.box_name = 'lowerarm_l'
-                    self.remove_box()
-                    state = 6
-                    working = False
-                    
-        if state == 6:  # risalita
-            x_ee = ee.position.x
-            y_ee = ee.position.y
-            z_ee = ee.position.z
-            if not working:
-                print('stato 6')
-                self.human_collision()
-
-                goal_pose = geometry_msgs.msg.Pose()
-                goal_pose.position.x = x_ee
-                goal_pose.position.y = y_ee
-                goal_pose.position.z = 1.2
-                goal_pose.orientation.x = 0
-                goal_pose.orientation.y = -1
-                goal_pose.orientation.z = 0
-                goal_pose.orientation.w = 0
-                self.go_to_pose_goal(goal_pose)
-            else:
-
-                if self.difference(1.2, z_ee, 0.05):
+                if self.difference(z_box+0.2, z_ee, 0.01):
 
                     self.box_name = 'lowerarm_r'
                     self.remove_box()
@@ -356,9 +331,9 @@ class GripperCommander():
 if __name__ == "__main__":
     global blocks_array, client_trans, state, working, end, selected_position
     global client_trans
-    global x_mid, y_mid, z_mid
+    global x_box, y_box, z_box
     global x_goal_trans, y_goal_trans, z_goal_trans
-    rospy.init_node("fsm_right")
+    rospy.init_node("fsm_left")
     blocks_array = [4, 4, 4, 4, 4]
     state = 0
     end = False
@@ -368,22 +343,22 @@ if __name__ == "__main__":
     x_goal_trans = 0
     y_goal_trans = 0
     z_goal_trans = 0
-    x_mid = 0
-    y_mid = 0
-    z_mid = 0
+    x_box = 0
+    y_box = 0
+    z_box = 0
     client_trans = rospy.ServiceProxy('transform', Transformation)
     sub_array = rospy.Subscriber("/blocks_state", BlocksState, clbk_array)
-    sub = rospy.Subscriber("/right_gripper_pose", PoseStamped, clbk_ee)
+    sub = rospy.Subscriber("/left_gripper_pose", PoseStamped, clbk_ee)
     pub = rospy.Publisher('/baxter_moveit_trajectory',
                           BaxterTrajectory,
                           queue_size=20)
 
-    g_right = GripperCommander()
+    g_left = GripperCommander()
     rospy.sleep(1)
-    #g_right.add_table()
+    g_left.add_table()
 
     rate = rospy.Rate(20)
 
     while not rospy.is_shutdown():
-        g_right.fsm()
+        g_left.fsm()
         rate.sleep()

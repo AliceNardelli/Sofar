@@ -39,6 +39,7 @@ catkin_install_python(PROGRAMS
   scripts/FSM.py
   scripts/feasability_planner.py
   scripts/fsm_right.py
+  scripts/fsm_left.py
   scripts/MoveIt_try.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

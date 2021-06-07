@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
                 if -referred_block.transform.transform.translation.y == 0:
                     blocks_state[i] = 2
-                # setto parametro middleplacent true RICORDA
+                    rospy.set_param("middleware",True)
 
                 if -referred_block.transform.transform.translation.y < 0:
                     blocks_state[i] = 3
