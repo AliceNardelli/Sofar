@@ -14,9 +14,11 @@ from human_baxter_collaboration.msg import BlocksState
 import math
 
 
-def distance_between_blocks(f_block,s_block,threshold):
-    dis = math.sqrt((f_block.transform.transform.translation.x - s_block.transform.transform.translation.x)**2 +
-                    (f_block.transform.transform.translation.y - s_block.transform.transform.translation.y)**2)            
+def distance_between_blocks(f_block, s_block, threshold):
+    dis = math.sqrt((f_block.transform.transform.translation.x -
+                     s_block.transform.transform.translation.x)**2 +
+                    (f_block.transform.transform.translation.y -
+                     s_block.transform.transform.translation.y)**2)
 
     if dis < threshold:
 
@@ -26,8 +28,6 @@ def distance_between_blocks(f_block,s_block,threshold):
             return False
     else:
         return False
-
-
 
 
 if __name__ == '__main__':
@@ -43,10 +43,10 @@ if __name__ == '__main__':
     state_message = BlocksState()
     crowded = False
     rate = rospy.Rate(20)
-    blue_box_transformation = client_trans('BlueBox')
+    #blue_box_transformation = client_trans('Bluebox')
 
     while not rospy.is_shutdown():
-
+        blue_box_transformation = client_trans('Bluebox')
         for i in range(5):
 
             # referred_block.frame_id = blocks_id[i]
@@ -55,36 +55,46 @@ if __name__ == '__main__':
             for j in range(11):
                 if i != j:
                     other_block = client_trans(blocks_id[j])
-                    #print(other_block)
-                    #print(blocks_id[j])
-                    #print(referred_block)
-                    #print(blocks_id[i])
+                    # print(other_block)
+                    # print(blocks_id[j])
+                    # print(referred_block)
+                    # print(blocks_id[i])
                     if j < 5:
                         crowded = distance_between_blocks(
                             referred_block, other_block, 0.05)
                     else:
                         crowded = distance_between_blocks(
                             referred_block, other_block, 0.05)
-                    
+
                 if crowded:
-                    
+
                     blocks_state[i] = 4
                     break
-               
+
             if not crowded:
-                if -referred_block.transform.transform.translation.y > 0:
-                    blocks_state[i] = 1
-
-                if -referred_block.transform.transform.translation.y == 0:
-                    blocks_state[i] = 2
-                    rospy.set_param("middleware",True)
-
-                if -referred_block.transform.transform.translation.y < 0:
-                    blocks_state[i] = 3
-
+               # if i == 0:
+                    #dis = math.sqrt(
+                        #(referred_block.transform.transform.translation.x -
+                         #blue_box_transformation.transform.transform.translation.x)**2 +
+                        #(
+                           # referred_block.transform.transform.translation.y -
+                           # blue_box_transformation.transform.transform.translation.y)**2)
+                    #print(dis)
+                    # print(referred_block)
+                    # print(blue_box_transformation)
                 if distance_between_blocks(
-                        referred_block, blue_box_transformation, 0.1):
+                         blue_box_transformation,referred_block, 0.1):
                     blocks_state[i] = 0
+                else:
+                    if -referred_block.transform.transform.translation.y > 0:
+                        blocks_state[i] = 1
+
+                    if -referred_block.transform.transform.translation.y == 0:
+                        blocks_state[i] = 2
+                        rospy.set_param("middleware", True)
+
+                    if -referred_block.transform.transform.translation.y < 0:
+                        blocks_state[i] = 3
 
             state_message.blocksarray = blocks_state
             pub.publish(state_message)

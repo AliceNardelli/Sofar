@@ -157,9 +157,10 @@ class GripperCommander():
                         if blocks_array[j] == 1:
                             selected_position = j
                             break
-
-                self.human_collision()
+                
+                #self.human_collision()
                 goal_trans = client_trans(blocks_id[selected_position])
+                print(goal_trans)
                 x_goal_trans = goal_trans.transform.transform.translation.x
                 y_goal_trans = goal_trans.transform.transform.translation.y
                 goal_pose = geometry_msgs.msg.Pose()
@@ -200,7 +201,7 @@ class GripperCommander():
                 x_goal_trans = goal_trans.transform.transform.translation.x
                 y_goal_trans = goal_trans.transform.transform.translation.y
                 z_goal_trans = goal_trans.transform.transform.translation.z
-                self.human_collision()
+                #self.human_collision()
 
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_goal_trans
@@ -230,7 +231,7 @@ class GripperCommander():
 
             if not working:
                 print('stato 3')
-                self.human_collision()
+                #self.human_collision()
 
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_ee

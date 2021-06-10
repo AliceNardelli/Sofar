@@ -10,7 +10,7 @@ import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
 from math import pi
-from std_msgs.msg import String
+from std_msgs.msg import String,Bool
 from moveit_commander.conversions import pose_to_list
 from human_baxter_collaboration.srv import Transformation
 from human_baxter_collaboration.msg import BaxterTrajectory
@@ -97,6 +97,11 @@ class GripperCommander():
         box_pose.pose.position.z = 0.4
         box_name = "Table"
         scene.add_box(box_name, box_pose, size=(2, 2, 0.75))
+        box_pose.pose.position.x = 1.1
+        box_pose.pose.position.y = 0
+        box_pose.pose.position.z = 1
+        box_name = "Human"
+        scene.add_box(box_name, box_pose, size=(0.1, 2, 2))
 
     def add_cylinder(self, f_id, pose_obs, timeout=4):
         box_name = self.box_name
@@ -106,12 +111,8 @@ class GripperCommander():
         box_pose.pose.position.x = pose_obs.transform.transform.translation.x
         box_pose.pose.position.y = pose_obs.transform.transform.translation.y
         box_pose.pose.position.z = pose_obs.transform.transform.translation.z
-        box_pose.pose.orientation.x = pose_obs.transform.transform.rotation.x
-        box_pose.pose.orientation.y = pose_obs.transform.transform.rotation.y
-        box_pose.pose.orientation.z = pose_obs.transform.transform.rotation.z
-        box_pose.pose.orientation.w = pose_obs.transform.transform.rotation.w
         box_name = f_id
-        scene.add_cylinder(box_name, box_pose, 0.25, 0.05)
+        scene.add_box(box_name, box_pose,size=(0.1, 0.3, 0.1))
         self.box_name = box_name
 
     def remove_box(self, timeout=4):
@@ -135,8 +136,8 @@ class GripperCommander():
         global x_goal_trans, y_goal_trans, state, blocks_array, end, working, blocks_id
         global ee, selected_position
         global x_box, y_box, z_box
-        global x_goal_trans, y_goal_trans, z_goal_trans
-
+        global x_goal_trans, y_goal_trans, z_goal_trans, pub_oc
+        
         if state == 0:  # rest
             x_goal_trans = 0
             y_goal_trans = 0
@@ -178,10 +179,10 @@ class GripperCommander():
                 goal_pose.orientation.z = 0
                 goal_pose.orientation.w = 0
                 self.go_to_pose_goal(goal_pose)
+
             else:
 
-                # rospy.loginfo(x_ee)
-                # rospy.loginfo(x_goal_trans)
+           
                 if self.difference(
                         x_goal_trans,
                         x_ee,
@@ -189,13 +190,17 @@ class GripperCommander():
                         y_goal_trans,
                         y_ee,
                         0.01):
-                    #rospy.loginfo("dentro if")
+                    
                     self.box_name = 'lowerarm_r'
                     self.remove_box()
                     self.box_name = 'lowerarm_l'
                     self.remove_box()
                     state = 2
                     working = False
+                    msg_oc=Bool()
+                    msg_oc.data=False
+                    pub_oc.publish(msg_oc)
+                    
         if state == 2:  # discesa
             x_ee = ee.position.x
             y_ee = ee.position.y
@@ -228,6 +233,10 @@ class GripperCommander():
                     self.remove_box()
                     state = 3
                     working = False
+                    msg_oc=Bool()
+                    msg_oc.data=True
+                    pub_oc.publish(msg_oc)
+                    
         if state == 3:  # sollevamento
             x_ee = ee.position.x
             y_ee = ee.position.y
@@ -240,16 +249,16 @@ class GripperCommander():
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_ee
                 goal_pose.position.y = y_ee
-                goal_pose.position.z = 1.2
+                goal_pose.position.z = 1
                 goal_pose.orientation.x = 0
                 goal_pose.orientation.y = -1
                 goal_pose.orientation.z = 0
                 goal_pose.orientation.w = 0
-                rospy.sleep(5)
+                
                 self.go_to_pose_goal(goal_pose)
             else:
 
-                if self.difference(1.2, z_ee, 0.01):
+                if self.difference(1, z_ee, 0.01):
 
                     self.box_name = 'lowerarm_r'
                     self.remove_box()
@@ -326,11 +335,15 @@ class GripperCommander():
                     self.remove_box()
                     state = 0
                     working = False
-
+                    msg_oc=Bool()
+                    msg_oc.data=False
+                    
+                    pub_oc.publish(msg_oc)
+                    
 
 if __name__ == "__main__":
     global blocks_array, client_trans, state, working, end, selected_position
-    global client_trans
+    global client_trans, pub_oc
     global x_box, y_box, z_box
     global x_goal_trans, y_goal_trans, z_goal_trans
     rospy.init_node("fsm_left")
@@ -352,11 +365,16 @@ if __name__ == "__main__":
     pub = rospy.Publisher('/baxter_moveit_trajectory',
                           BaxterTrajectory,
                           queue_size=20)
-
+    pub_oc = rospy.Publisher('/open_close_left',
+                          Bool,
+                          queue_size=20)
+                   
     g_left = GripperCommander()
     rospy.sleep(1)
     g_left.add_table()
-
+    msg_oc=Bool()
+    msg_oc.data=False
+    pub_oc.publish(msg_oc)
     rate = rospy.Rate(20)
 
     while not rospy.is_shutdown():
