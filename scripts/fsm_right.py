@@ -10,7 +10,7 @@ import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
 from math import pi
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool
 from moveit_commander.conversions import pose_to_list
 from human_baxter_collaboration.srv import Transformation
 from human_baxter_collaboration.msg import BaxterTrajectory
@@ -136,7 +136,7 @@ class GripperCommander():
         global ee, selected_position
         global x_mid, y_mid, z_mid
         global x_goal_trans, y_goal_trans, z_goal_trans
-
+        global pub_oc
         if state == 0:  # rest
             x_goal_trans = 0
             y_goal_trans = 0
@@ -181,6 +181,7 @@ class GripperCommander():
                         y_goal_trans,
                         y_ee,
                         0.01):
+                        
                     print(x_ee)
                     print(y_ee)
                     print(z_ee)
@@ -224,6 +225,10 @@ class GripperCommander():
                     self.remove_box()
                     state = 3
                     working = False
+                    msg_oc=Bool()
+                    msg_oc.data=True
+                    pub_oc.publish(msg_oc)
+                    
         if state == 3:  # sollevamento
             x_ee = ee.position.x
             y_ee = ee.position.y
@@ -256,7 +261,7 @@ class GripperCommander():
                     state = 4
                     working = False
 
-        if state == 4:  # raggiungo la scatola
+        if state == 4:  # centro
 
             x_ee = ee.position.x
             y_ee = ee.position.y
@@ -324,6 +329,9 @@ class GripperCommander():
                     self.remove_box()
                     state = 6
                     working = False
+                    msg_oc=Bool()
+                    msg_oc.data=False
+                    pub_oc.publish(msg_oc)
                     
         if state == 6:  # risalita
             x_ee = ee.position.x
@@ -356,7 +364,7 @@ class GripperCommander():
 
 if __name__ == "__main__":
     global blocks_array, client_trans, state, working, end, selected_position
-    global client_trans
+    global client_trans, pub_oc
     global x_mid, y_mid, z_mid
     global x_goal_trans, y_goal_trans, z_goal_trans
     rospy.init_node("fsm_right")
@@ -378,11 +386,14 @@ if __name__ == "__main__":
     pub = rospy.Publisher('/baxter_moveit_trajectory',
                           BaxterTrajectory,
                           queue_size=20)
-
+    pub_oc = rospy.Publisher('/open_close_right',
+                          Bool,
+                          queue_size=20)
+    msg_oc=Bool()
+    msg_oc.data=False
     g_right = GripperCommander()
     rospy.sleep(1)
-    #g_right.add_table()
-
+    
     rate = rospy.Rate(20)
 
     while not rospy.is_shutdown():
