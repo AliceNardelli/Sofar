@@ -38,7 +38,7 @@ if __name__ == '__main__':
     rospy.init_node('feasability_planner')
     blocks_state = [4, 4, 4, 4, 4]
     blocks_id = ['C', 'E', 'G', 'I', 'M', 'A', 'B', 'D', 'F', 'H', 'L']
-    client_trans = rospy.ServiceProxy('/transform', Transformation)
+    client_trans = rospy.ServiceProxy('/gl/transform', Transformation)
     pub = rospy.Publisher('/blocks_state', BlocksState, queue_size=1)
     state_message = BlocksState()
     crowded = False
@@ -91,7 +91,7 @@ if __name__ == '__main__':
 
                     if -referred_block.transform.transform.translation.y == 0:
                         blocks_state[i] = 2
-                        rospy.set_param("middleware", True)
+                        #rospy.set_param("middleware", True)
 
                     if -referred_block.transform.transform.translation.y < 0:
                         blocks_state[i] = 3

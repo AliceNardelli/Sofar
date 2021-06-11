@@ -65,8 +65,8 @@
     </include>
   </group>
 
-  <node name="world_to_base" pkg="tf" type="static_transform_publisher"
-        args="0 0 0.9 0 0 0 world base 10" />
+  <!--<node name="world_to_base" pkg="tf" type="static_transform_publisher"-->
+      <!--  args="0 0 0.9 0 0 0 world base 10" /> -->
         
       <!-- Disable Moveit! controller timeout -->
     <param name="move_group/trajectory_execution/execution_duration_monitoring" value="false" />

@@ -35,7 +35,8 @@ if __name__ == '__main__':
     rospy.init_node('tf_listener')
     tfBuffer = tf2_ros.Buffer()
     listener = tf2_ros.TransformListener(tfBuffer)
-    s = rospy.Service('/transform', Transformation, clbk)
+    s1 = rospy.Service('/gl/transform', Transformation, clbk)
+    s2 = rospy.Service('/gr/transform', Transformation, clbk)
     rate = rospy.Rate(20)
 
     while not rospy.is_shutdown():

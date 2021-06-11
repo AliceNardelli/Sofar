@@ -1,13 +1,30 @@
 <launch>
 
-    <rosparam file="$(find human_baxter_collaboration)/config/params.yaml" command="load"/>
-    <arg name="middleware" default= "False" />
-    
-    <param name="middleware" value="$(arg middleware)" />
-    
-    <node name="tf_listener" pkg="human_baxter_collaboration" type="tf_listener.py" args="--wait" output="screen" />
+    <rosparam file="$(find human_baxter_collaboration)/config/params.yaml" command="load"/>    
     
     <node name="server_endpoint" pkg="human_baxter_collaboration" type="server_endpoint_hrc.py" args="--wait" output="screen" respawn="true" />
-    <node name="unity_tf_publisher" pkg="human_baxter_collaboration" type="tf_publisher.py" args="--wait" output="screen"/>
-    <include file="$(find human_baxter_collaboration)/launch/demo.launch" />
+    <node name="unity_tf_publisher" pkg="human_baxter_collaboration" type="tf_publisher.py" args="--wait" output="screen"/>    
+    <node name="tf_listener" pkg="human_baxter_collaboration" type="tf_listener.py" args="--wait" output="screen" />
+    <node name="feasability_planner" pkg="human_baxter_collaboration" type="feasability_planner.py" args="--wait" output="screen"  />
+
+    
+    <group ns="gl">
+
+	  <node name="fsm_left" pkg="human_baxter_collaboration" type="fsm_left.py" args="--wait" output="screen"  />
+		
+	  
+	  <include file="$(find human_baxter_collaboration)/launch/demo.launch" />
+ 
+    </group>
+    <group ns="gr">
+
+	  <node name="fsm_right" pkg="human_baxter_collaboration" type="fsm_right.py" args="--wait" output="screen"  />
+		
+	  
+	  
+	  <include file="$(find human_baxter_collaboration)/launch/demo.launch" />
+ 
+   </group>
+   <node name="world_to_base" pkg="tf" type="static_transform_publisher"
+      args="0 0 0.9 0 0 0 world base 10" />
 </launch>

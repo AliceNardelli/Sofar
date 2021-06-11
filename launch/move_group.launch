@@ -56,6 +56,7 @@
 				      move_group/ClearOctomapService
 				      move_group/ApplyPlanningSceneService
 				      " />
+			      
 
     <!-- Publish the planning scene of the physical robot so that rviz plugin can know actual robot -->
     <param name="planning_scene_monitor/publish_planning_scene" value="$(arg publish_monitored_planning_scene)" />

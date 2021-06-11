@@ -32,6 +32,10 @@ def clbk_array(msg):
 def clbk_ee(msg):
     global ee
     ee = msg.pose
+    
+def clbk(msg):
+    global middleware
+    middleware=True
 
 
 class GripperCommander():
@@ -153,16 +157,19 @@ class GripperCommander():
             z_ee = ee.position.z
             if not working:
                 print("stato1")
-                middleware = rospy.get_param('middleware')
+                #middleware = rospy.get_param('middleware')
                 #middleware = False
-                if middleware:
-                    for j in range(5):
+                #if middleware:
+                    #for j in range(5):
+                        #if blocks_array[j] == 2:
+                            #selected_position = j
+                            #break
+                #else:  # mettiamo i blocchi in modo tale che i primi a essere presi sono quelli a destra?
+                for j in range(5):
                         if blocks_array[j] == 2:
                             selected_position = j
                             break
-                else:  # mettiamo i blocchi in modo tale che i primi a essere presi sono quelli a destra?
-                    for j in range(5):
-                        if blocks_array[j] == 3:
+                        elif blocks_array[j] == 3:
                             selected_position = j
                             break
 
@@ -345,7 +352,7 @@ if __name__ == "__main__":
     global blocks_array, client_trans, state, working, end, selected_position
     global client_trans, pub_oc
     global x_box, y_box, z_box
-    global x_goal_trans, y_goal_trans, z_goal_trans
+    global x_goal_trans, y_goal_trans, z_goal_trans, middleware
     rospy.init_node("fsm_left")
     blocks_array = [4, 4, 4, 4, 4]
     state = 0
@@ -359,7 +366,8 @@ if __name__ == "__main__":
     x_box = 0
     y_box = 0
     z_box = 0
-    client_trans = rospy.ServiceProxy('transform', Transformation)
+    s1 = rospy.Service('/middleware', Bool, clbk)
+    client_trans = rospy.ServiceProxy('/gl/transform', Transformation)
     sub_array = rospy.Subscriber("/blocks_state", BlocksState, clbk_array)
     sub = rospy.Subscriber("/left_gripper_pose", PoseStamped, clbk_ee)
     pub = rospy.Publisher('/baxter_moveit_trajectory',
