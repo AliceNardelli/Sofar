@@ -10,7 +10,7 @@ import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
 from math import pi
-from std_msgs.msg import String,Bool
+from std_msgs.msg import *
 from moveit_commander.conversions import pose_to_list
 from human_baxter_collaboration.srv import Transformation
 from human_baxter_collaboration.msg import BaxterTrajectory
@@ -21,7 +21,7 @@ from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import JointState
 from moveit_msgs.msg import RobotState
 import tf
-
+from std_srvs.srv import *
 
 def clbk_array(msg):
     global blocks_array
@@ -33,10 +33,10 @@ def clbk_ee(msg):
     global ee
     ee = msg.pose
     
-def clbk(msg):
+def clbk(req):
     global middleware
     middleware=True
-
+    return []
 
 class GripperCommander():
 
@@ -140,8 +140,8 @@ class GripperCommander():
         global x_goal_trans, y_goal_trans, state, blocks_array, end, working, blocks_id
         global ee, selected_position
         global x_box, y_box, z_box
-        global x_goal_trans, y_goal_trans, z_goal_trans, pub_oc
-        
+        global x_goal_trans, y_goal_trans, z_goal_trans, pub_oc, middleware , client_mid
+       
         if state == 0:  # rest
             x_goal_trans = 0
             y_goal_trans = 0
@@ -152,27 +152,26 @@ class GripperCommander():
                     if blocks_array[i] == 2 or blocks_array[i] == 3:
                         state = 1
         if state == 1:  # reaching
+            
             x_ee = ee.position.x
             y_ee = ee.position.y
             z_ee = ee.position.z
             if not working:
+                
                 print("stato1")
-                #middleware = rospy.get_param('middleware')
-                #middleware = False
-                #if middleware:
-                    #for j in range(5):
-                        #if blocks_array[j] == 2:
-                            #selected_position = j
-                            #break
-                #else:  # mettiamo i blocchi in modo tale che i primi a essere presi sono quelli a destra?
-                for j in range(5):
+                rospy.sleep(3)
+                if middleware:
+                    for j in range(5):
                         if blocks_array[j] == 2:
                             selected_position = j
+                            #rospy.sleep(2)
                             break
-                        elif blocks_array[j] == 3:
+                else:  # mettiamo i blocchi in modo tale che i primi a essere presi sono quelli a destra?
+                    for j in range(5):
+                        if blocks_array[j] == 3:
                             selected_position = j
                             break
-
+        
                 self.human_collision()
                 goal_trans = client_trans(blocks_id[selected_position])
                 x_goal_trans = goal_trans.transform.transform.translation.x
@@ -273,7 +272,10 @@ class GripperCommander():
                     self.remove_box()
                     state = 4
                     working = False
-                    rospy.set_param("middleware",False)
+                    
+                    middleware = False
+                    resp = client_mid()
+                    
         if state == 4:  # raggiungo la scatola
 
             x_ee = ee.position.x
@@ -326,7 +328,7 @@ class GripperCommander():
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_ee
                 goal_pose.position.y = y_ee
-                goal_pose.position.z = z_box+0.2
+                goal_pose.position.z = z_box+0.35
                 goal_pose.orientation.x = 0
                 goal_pose.orientation.y = -1
                 goal_pose.orientation.z = 0
@@ -334,7 +336,7 @@ class GripperCommander():
                 self.go_to_pose_goal(goal_pose)
             else:
 
-                if self.difference(z_box+0.2, z_ee, 0.01):
+                if self.difference(z_box+0.35, z_ee, 0.01):
 
                     self.box_name = 'lowerarm_r'
                     self.remove_box()
@@ -366,7 +368,10 @@ if __name__ == "__main__":
     x_box = 0
     y_box = 0
     z_box = 0
-    s1 = rospy.Service('/middleware', Bool, clbk)
+    middleware = False
+    s1 = rospy.Service('/occup_middleware', Empty, clbk)
+    client_mid = rospy.ServiceProxy('/free_middleware',  Empty)
+    
     client_trans = rospy.ServiceProxy('/gl/transform', Transformation)
     sub_array = rospy.Subscriber("/blocks_state", BlocksState, clbk_array)
     sub = rospy.Subscriber("/left_gripper_pose", PoseStamped, clbk_ee)

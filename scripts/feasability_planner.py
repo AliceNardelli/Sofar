@@ -12,7 +12,7 @@ from std_srvs.srv import *
 from human_baxter_collaboration.srv import Transformation
 from human_baxter_collaboration.msg import BlocksState
 import math
-
+import numpy as np
 
 def distance_between_blocks(f_block, s_block, threshold):
     dis = math.sqrt((f_block.transform.transform.translation.x -
@@ -31,7 +31,7 @@ def distance_between_blocks(f_block, s_block, threshold):
 
 
 if __name__ == '__main__':
-
+    rospy.sleep(3)
     global blocks_state, blocks_id
     global client_trans, pub
 
@@ -83,17 +83,16 @@ if __name__ == '__main__':
                     # print(referred_block)
                     # print(blue_box_transformation)
                 if distance_between_blocks(
-                         blue_box_transformation,referred_block, 0.1):
+                         blue_box_transformation,referred_block, 0.2):
                     blocks_state[i] = 0
                 else:
-                    if -referred_block.transform.transform.translation.y > 0:
+                    if np.abs(-referred_block.transform.transform.translation.y) < 0.1:
+                        blocks_state[i] = 2
+                        
+                    elif -referred_block.transform.transform.translation.y > 0:
                         blocks_state[i] = 1
 
-                    if -referred_block.transform.transform.translation.y == 0:
-                        blocks_state[i] = 2
-                        #rospy.set_param("middleware", True)
-
-                    if -referred_block.transform.transform.translation.y < 0:
+                    elif -referred_block.transform.transform.translation.y < 0:
                         blocks_state[i] = 3
 
             state_message.blocksarray = blocks_state

@@ -10,7 +10,7 @@ import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
 from math import pi
-from std_msgs.msg import String, Bool
+from std_msgs.msg import *
 from moveit_commander.conversions import pose_to_list
 from human_baxter_collaboration.srv import Transformation
 from human_baxter_collaboration.msg import BaxterTrajectory
@@ -21,7 +21,7 @@ from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import JointState
 from moveit_msgs.msg import RobotState
 import tf
-
+from std_srvs.srv import *
 
 def clbk_array(msg):
     global blocks_array
@@ -33,7 +33,11 @@ def clbk_ee(msg):
     global ee
     ee = msg.pose
 
-
+def clbk(req):
+    global middleware
+    middleware = False
+    return []
+    
 class GripperCommander():
 
     def __init__(self):
@@ -112,7 +116,7 @@ class GripperCommander():
         global ee, selected_position
         global x_mid, y_mid, z_mid
         global x_goal_trans, y_goal_trans, z_goal_trans
-        global pub_oc
+        global pub_oc, middleware, client_mid
         if state == 0:  # rest
             x_goal_trans = 0
             y_goal_trans = 0
@@ -249,8 +253,10 @@ class GripperCommander():
                 goal_pose.orientation.y = -1
                 goal_pose.orientation.z = 0
                 goal_pose.orientation.w = 0
-                working=True
-                self.go_to_pose_goal(goal_pose)
+                
+                if not middleware:
+                	working=True        
+                	self.go_to_pose_goal(goal_pose)
             else:
 
                 if self.difference(
@@ -276,7 +282,7 @@ class GripperCommander():
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_mid
                 goal_pose.position.y = y_mid
-                goal_pose.position.z = z_mid
+                goal_pose.position.z = z_mid + 0.1
                 goal_pose.orientation.x = 0
                 goal_pose.orientation.y = -1
                 goal_pose.orientation.z = 0
@@ -285,14 +291,16 @@ class GripperCommander():
                 self.go_to_pose_goal(goal_pose)
             else:
 
-                if self.difference(z_mid, z_ee, 0.01):
+                if self.difference( z_mid + 0.1 , z_ee, 0.01):
 
                     state = 6
                     working = False
                     msg_oc=Bool()
                     msg_oc.data=False
                     pub_oc.publish(msg_oc)
-                    
+                    middleware = True
+                    resp = client_mid()
+         
         if state == 6:  # risalita
             x_ee = ee.position.x
             y_ee = ee.position.y
@@ -302,8 +310,8 @@ class GripperCommander():
              
 
                 goal_pose = geometry_msgs.msg.Pose()
-                goal_pose.position.x = x_ee
-                goal_pose.position.y = y_ee
+                goal_pose.position.x =0.74
+                goal_pose.position.y =-0.335
                 goal_pose.position.z = 1
                 goal_pose.orientation.x = 0
                 goal_pose.orientation.y = -1
@@ -322,7 +330,7 @@ if __name__ == "__main__":
     global blocks_array, client_trans, state, working, end, selected_position
     global client_trans, pub_oc
     global x_mid, y_mid, z_mid
-    global x_goal_trans, y_goal_trans, z_goal_trans
+    global x_goal_trans, y_goal_trans, z_goal_trans, middleware
     rospy.init_node("fsm_right")
     blocks_array = [4, 4, 4, 4, 4]
     state = 0
@@ -336,6 +344,10 @@ if __name__ == "__main__":
     x_mid = 0
     y_mid = 0
     z_mid = 0
+    middleware = True
+    s1 = rospy.Service('/free_middleware', Empty, clbk)
+    client_mid = rospy.ServiceProxy('/occup_middleware', Empty)
+    
     client_trans = rospy.ServiceProxy('/gr/transform', Transformation)
     sub_array = rospy.Subscriber("/blocks_state", BlocksState, clbk_array)
     sub = rospy.Subscriber("/right_gripper_pose", PoseStamped, clbk_ee)
