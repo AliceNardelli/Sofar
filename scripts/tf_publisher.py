@@ -1,4 +1,31 @@
 #!/usr/bin/env python  
+"""
+.. module:: tf_publisher
+    :platform: Unix
+    :synopsis: Python module for implementing the frame transformation
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+                  Alice Nardelli - alice.nardelli98@gmail.com
+                  Federico Civetta - fedeunivers@gmail.com
+                  Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+This node basically consists in an adapter which manage the frame transformation from Unity  to ROS domain 
+
+Subscribes to:
+     /unity_tf tf node in ROS
+     
+
+Publishes to:
+    None
+
+Service :
+     None
+
+Clients:
+     None
+
+
+"""
 import rospy
 
 # Because of transformations
@@ -9,7 +36,19 @@ import geometry_msgs.msg
 from human_baxter_collaboration.msg import UnityTf
 
 def publish_frames(msg):
+    """
+    Description of the '' function:
+           
+    lore ipsum
+           
+    
+     Args :
+             None
+    
+    Returns :
+             None
 
+    """
     br = tf2_ros.TransformBroadcaster()
     for transform in msg.frames:
         t = geometry_msgs.msg.TransformStamped()
@@ -28,6 +67,8 @@ def publish_frames(msg):
         br.sendTransform(t)
 
 if __name__ == '__main__':
+    """
+    """
     rospy.init_node('unity_tf_publisher')
     rospy.Subscriber('unity_tf', UnityTf, publish_frames)
     rospy.spin()

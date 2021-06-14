@@ -1,4 +1,34 @@
 #!/usr/bin/env python
+
+"""
+.. module:: fsm_left
+    :platform: Unix
+    :synopsis: Python module for implementing the finite state machine of the left gripper 
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+                  Alice Nardelli - alice.nardelli98@gmail.com
+                  Federico Civetta - fedeunivers@gmail.com
+                  Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+The ontology and the planner is done by the two finite state machines node.  We have decidedto implement a specific node for each gripper in order to manage them individually
+
+Subscribes to:
+     /blocks_state
+     /left_gripper_pose
+
+Publishes to:
+    /baxter_movit_trajectory
+    /open_close_left
+
+Service :
+     /occup_middleware 
+
+Clients:
+     /free_middleware
+     /gl/trnasform
+
+
+"""
 from __future__ import print_function
 import rospy
 
@@ -24,23 +54,82 @@ import tf
 from std_srvs.srv import *
 
 def clbk_array(msg):
+    """
+    Description of the '' function:
+           
+    lore ipsum
+           
+    
+    Args :
+      None
+    
+    Returns :
+      None
+    """
     global blocks_array
     for i in range(5):
         blocks_array[i] = msg.blocksarray[i]
 
 
 def clbk_ee(msg):
+    """
+    Description of the '' function:
+           
+    lore ipsum
+           
+    
+    Args :
+      None
+    
+    Returns :
+      None
+    """
     global ee
     ee = msg.pose
     
 def clbk(req):
+    """
+    Description of the '' function:
+           
+    lore ipsum
+           
+    
+    Args :
+      None
+    
+    Returns :
+      None
+
+    """
     global middleware
     middleware=True
     return []
 
 class GripperCommander():
+    """
+    This is a the class representing the implementation of the Gripper commander
 
+    param object: None
+    :type object: class:`GripperCommander`
+    :param name: scene
+    :type name: Any
+    :param name: group_name referring to the left arm group
+    :type str
+    :param name: move_group
+    :type Any
+    :param name: planning_frame
+    :type Any
+    :param name: eef_link
+    :type Any
+    :param name: group_names
+    :type str
+    :param name: box_name the name of the box 
+    :type str
+		
+    """
+    
     def __init__(self):
+    
 
         moveit_commander.roscpp_initialize(sys.argv)
         self.gripper = moveit_commander.RobotCommander()
@@ -56,6 +145,19 @@ class GripperCommander():
         self.box_name = ""
 
     def go_to_pose_goal(self, pose_goal):
+        """
+        Description of the '' function:
+           
+        lore ipsum
+           
+    
+         Args :
+             None
+    
+         Returns :
+             None
+
+        """
         global pub
         print(pose_goal)
         camera_info = rospy.wait_for_message(
@@ -91,6 +193,19 @@ class GripperCommander():
         self.move_group.clear_pose_targets()
 
     def add_table(self, timeout=4):
+        """
+        Description of the '' function:
+           
+        lore ipsum
+           
+    
+        Args :
+             None
+    
+        Returns :
+             None
+
+        """
         box_name = self.box_name
         scene = self.scene
         box_pose = PoseStamped()
@@ -109,10 +224,37 @@ class GripperCommander():
 
 
     def difference(self, a, b, threshold):
+        """
+        Description of the '' function:
+           
+        lore ipsum
+           
+    
+        Args :
+             None
+    
+        Returns :
+             None
+
+        """
+        
         
         return np.abs(a - b) < threshold
 
     def fsm(self):
+        """
+        Description of the '' function:
+           
+        lore ipsum
+           
+    
+        Args :
+             None
+    
+        Returns :
+             None
+
+        """
         global x_goal_trans, y_goal_trans, state, blocks_array, end, working, blocks_id
         global ee, selected_position
         global x_box, y_box, z_box

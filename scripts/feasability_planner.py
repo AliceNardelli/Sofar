@@ -1,4 +1,34 @@
 #!/usr/bin/env python
+
+"""
+.. module:: feasability_planner
+    :platform: Unix
+    :synopsis: Python module for implementing the pheasibility planner
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+                  Alice Nardelli - alice.nardelli98@gmail.com
+                  Federico Civetta - fedeunivers@gmail.com
+                  Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+This  component  is  involved  in  the  perception  and  scene  analysis.
+It  continuously  asks  totf_listener.pyfor  the  transformation  of  each  
+blue  block  on  the  table.   Then  it  publishes an array with 
+how blocks are arranged in the scene
+
+Subscribes to:
+     None
+
+Publishes to:
+    /blocks_state
+
+Service :
+     None 
+
+Clients:
+     /gl/transform
+
+
+"""
 import rospy
 
 # Because of transformations
@@ -15,6 +45,19 @@ import math
 import numpy as np
 
 def distance_between_blocks(f_block, s_block, threshold):
+    """
+    Description of the '' function:
+           
+    lore ipsum
+           
+    
+    Args :
+      None
+    
+    Returns :
+      None
+      
+    """
     dis = math.sqrt((f_block.transform.transform.translation.x -
                      s_block.transform.transform.translation.x)**2 +
                     (f_block.transform.transform.translation.y -
@@ -31,6 +74,19 @@ def distance_between_blocks(f_block, s_block, threshold):
 
 
 if __name__ == '__main__':
+    """
+    Description of the '' function:
+           
+    lore ipsum
+           
+    
+    Args :
+      None
+    
+    Returns :
+      None
+
+    """
     rospy.sleep(3)
     global blocks_state, blocks_id
     global client_trans, pub
