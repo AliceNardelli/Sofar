@@ -1,4 +1,37 @@
 #!/usr/bin/env python
+"""
+.. module:: tf_listener
+    :platform: Unix
+    :synopsis: Python module for implementing the transfromation frame tf_listener
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+                  Alice Nardelli - alice.nardelli98@gmail.com
+                  Federico Civetta - fedeunivers@gmail.com
+                  Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+
+This is a service node which is charachterized as follows:
+1. as request:  it listens the object transformations  from tf_publisher.py and 
+2. as response: it sends the listened object tranformations to another nodes.
+
+
+Subscribes to:
+     /blocks_state
+     /left_gripper_pose
+
+Publishes to:
+    None
+    None
+
+Service :
+     /gl/transform 
+
+Clients:
+     None
+     
+
+
+"""
 import rospy
 
 # Because of transformations
@@ -16,6 +49,19 @@ from human_baxter_collaboration.srv import Transformation
 
 
 def clbk(req):
+    """
+    Description of the '' function:
+           
+    lore ipsum
+           
+    
+     Args :
+             None
+    
+    Returns :
+             None
+
+    """
     global listener
     global tfBuffer
     global rate
@@ -29,6 +75,8 @@ def clbk(req):
 
 
 if __name__ == '__main__':
+    """
+    """
     global listener
     global tfBuffer
     global rate
