@@ -134,13 +134,13 @@ class GripperCommander():
             z_ee = ee.position.z
             if not working:
                 
-                print("stato1")
-                rospy.sleep(3)
+               
+                rospy.sleep(4)
                 if middleware:
                     for j in range(5):
                         if blocks_array[j] == 2:
                             selected_position = j
-                            #rospy.sleep(2)
+                            
                             break
                 else:  # mettiamo i blocchi in modo tale che i primi a essere presi sono quelli a destra?
                     for j in range(5):
