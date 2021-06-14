@@ -107,33 +107,9 @@ class GripperCommander():
         box_name = "Human"
         scene.add_box(box_name, box_pose, size=(0.1, 2, 2))
 
-    def add_cylinder(self, f_id, pose_obs, timeout=4):
-        box_name = self.box_name
-        scene = self.scene
-        box_pose = geometry_msgs.msg.PoseStamped()
-        box_pose.header.frame_id = f_id
-        box_pose.pose.position.x = pose_obs.transform.transform.translation.x
-        box_pose.pose.position.y = pose_obs.transform.transform.translation.y
-        box_pose.pose.position.z = pose_obs.transform.transform.translation.z
-        box_name = f_id
-        scene.add_box(box_name, box_pose,size=(0.1, 0.3, 0.1))
-        self.box_name = box_name
-
-    def remove_box(self, timeout=4):
-        box_name = self.box_name
-        scene = self.scene
-        scene.remove_world_object(box_name)
-
-    def human_collision(self):
-        global working, client_trans
-        trans_right = client_trans('lowerarm_r')
-        trans_left = client_trans('lowerarm_l')
-        self.add_cylinder('lowerarm_r', trans_right)
-        self.add_cylinder('lowerarm_l', trans_left)
-        working = True
 
     def difference(self, a, b, threshold):
-        #rospy.loginfo(np.abs(a - b))
+        
         return np.abs(a - b) < threshold
 
     def fsm(self):
@@ -172,7 +148,7 @@ class GripperCommander():
                             selected_position = j
                             break
         
-                self.human_collision()
+                
                 goal_trans = client_trans(blocks_id[selected_position])
                 x_goal_trans = goal_trans.transform.transform.translation.x
                 y_goal_trans = goal_trans.transform.transform.translation.y
@@ -185,7 +161,7 @@ class GripperCommander():
                 goal_pose.orientation.z = 0
                 goal_pose.orientation.w = 0
                 self.go_to_pose_goal(goal_pose)
-
+                working = True
             else:
 
            
@@ -196,11 +172,7 @@ class GripperCommander():
                         y_goal_trans,
                         y_ee,
                         0.01):
-                    
-                    self.box_name = 'lowerarm_r'
-                    self.remove_box()
-                    self.box_name = 'lowerarm_l'
-                    self.remove_box()
+
                     state = 2
                     working = False
                     msg_oc=Bool()
@@ -218,7 +190,7 @@ class GripperCommander():
                 x_goal_trans = goal_trans.transform.transform.translation.x
                 y_goal_trans = goal_trans.transform.transform.translation.y
                 z_goal_trans = goal_trans.transform.transform.translation.z
-                self.human_collision()
+                
 
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_goal_trans
@@ -229,14 +201,11 @@ class GripperCommander():
                 goal_pose.orientation.z = 0
                 goal_pose.orientation.w = 0
                 self.go_to_pose_goal(goal_pose)
+                working = True
             else:
 
                 if self.difference(z_goal_trans, z_ee, 0.01):
 
-                    self.box_name = 'lowerarm_r'
-                    self.remove_box()
-                    self.box_name = 'lowerarm_l'
-                    self.remove_box()
                     state = 3
                     working = False
                     msg_oc=Bool()
@@ -250,8 +219,7 @@ class GripperCommander():
          
             if not working:
                 print('stato 3')
-                self.human_collision()
-
+                
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_ee
                 goal_pose.position.y = y_ee
@@ -262,14 +230,11 @@ class GripperCommander():
                 goal_pose.orientation.w = 0
                 
                 self.go_to_pose_goal(goal_pose)
+                working = True
             else:
 
                 if self.difference(1, z_ee, 0.01):
 
-                    self.box_name = 'lowerarm_r'
-                    self.remove_box()
-                    self.box_name = 'lowerarm_l'
-                    self.remove_box()
                     state = 4
                     working = False
                     
@@ -287,10 +252,6 @@ class GripperCommander():
                 x_box = box.transform.transform.translation.x
                 y_box = box.transform.transform.translation.y
                 z_box = box.transform.transform.translation.z
-                print(x_box)
-                print(y_box)
-                print(z_box)
-                self.human_collision()
 
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_box
@@ -301,6 +262,7 @@ class GripperCommander():
                 goal_pose.orientation.z = 0
                 goal_pose.orientation.w = 0
                 self.go_to_pose_goal(goal_pose)
+                working = True
             else:
 
                 if self.difference(
@@ -311,10 +273,6 @@ class GripperCommander():
                         y_ee,
                         0.01):
 
-                    self.box_name = 'lowerarm_r'
-                    self.remove_box()
-                    self.box_name = 'lowerarm_l'
-                    self.remove_box()
                     state = 5
                     working = False
         if state == 5:  # discesa
@@ -322,8 +280,6 @@ class GripperCommander():
             y_ee = ee.position.y
             z_ee = ee.position.z
             if not working:
-                print('stato 5')
-                self.human_collision()
 
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_ee
@@ -334,14 +290,11 @@ class GripperCommander():
                 goal_pose.orientation.z = 0
                 goal_pose.orientation.w = 0
                 self.go_to_pose_goal(goal_pose)
+                working = True
             else:
 
                 if self.difference(z_box+0.35, z_ee, 0.01):
 
-                    self.box_name = 'lowerarm_r'
-                    self.remove_box()
-                    self.box_name = 'lowerarm_l'
-                    self.remove_box()
                     state = 0
                     working = False
                     msg_oc=Bool()
@@ -388,7 +341,7 @@ if __name__ == "__main__":
     msg_oc=Bool()
     msg_oc.data=False
     pub_oc.publish(msg_oc)
-    rate = rospy.Rate(20)
+    rate = rospy.Rate(10)
 
     while not rospy.is_shutdown():
         g_left.fsm()

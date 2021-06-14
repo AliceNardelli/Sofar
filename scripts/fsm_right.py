@@ -364,7 +364,7 @@ if __name__ == "__main__":
     g_right.add_table()
     rospy.sleep(1)
     
-    rate = rospy.Rate(20)
+    rate = rospy.Rate(10)
 
     while not rospy.is_shutdown():
         g_right.fsm()

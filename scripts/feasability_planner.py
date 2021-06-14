@@ -42,23 +42,20 @@ if __name__ == '__main__':
     pub = rospy.Publisher('/blocks_state', BlocksState, queue_size=1)
     state_message = BlocksState()
     crowded = False
-    rate = rospy.Rate(20)
-    #blue_box_transformation = client_trans('Bluebox')
+    rate = rospy.Rate(15)
+    
 
     while not rospy.is_shutdown():
         blue_box_transformation = client_trans('Bluebox')
         for i in range(5):
 
-            # referred_block.frame_id = blocks_id[i]
+           
             referred_block = client_trans(blocks_id[i])
 
             for j in range(11):
                 if i != j:
                     other_block = client_trans(blocks_id[j])
-                    # print(other_block)
-                    # print(blocks_id[j])
-                    # print(referred_block)
-                    # print(blocks_id[i])
+
                     if j < 5:
                         crowded = distance_between_blocks(
                             referred_block, other_block, 0.05)
@@ -72,16 +69,7 @@ if __name__ == '__main__':
                     break
 
             if not crowded:
-               # if i == 0:
-                    #dis = math.sqrt(
-                        #(referred_block.transform.transform.translation.x -
-                         #blue_box_transformation.transform.transform.translation.x)**2 +
-                        #(
-                           # referred_block.transform.transform.translation.y -
-                           # blue_box_transformation.transform.transform.translation.y)**2)
-                    #print(dis)
-                    # print(referred_block)
-                    # print(blue_box_transformation)
+
                 if distance_between_blocks(
                          blue_box_transformation,referred_block, 0.2):
                     blocks_state[i] = 0
