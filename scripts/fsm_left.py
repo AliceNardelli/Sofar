@@ -15,12 +15,13 @@ The ontology and the planner is done by the two finite state machines node.  We 
 Subscribes to:
      /blocks_state
      /left_gripper_pose
+     /baxter_joint_states
 
 Publishes to:
     /baxter_movit_trajectory
     /open_close_left
 
-Service :
+Service servers :
      /occup_middleware 
 
 Clients:
@@ -55,13 +56,13 @@ from std_srvs.srv import *
 
 def clbk_array(msg):
     """
-    Description of the '' function:
+    Description of the clbk_array function:
            
-    lore ipsum
+    continuously update the array in which are contained informations about blocks state
            
     
     Args :
-      None
+      msg(int64[]) the blocksarray field of BlocksState.msg
     
     Returns :
       None
@@ -73,13 +74,13 @@ def clbk_array(msg):
 
 def clbk_ee(msg):
     """
-    Description of the '' function:
+    Description of the clbk_ee function:
            
-    lore ipsum
+    Read the actual position of the end effector of the left gripper, and copy subscribed value inside a global variable.
            
     
     Args :
-      None
+      msg(PoseStamped)
     
     Returns :
       None
@@ -89,13 +90,15 @@ def clbk_ee(msg):
     
 def clbk(req):
     """
-    Description of the '' function:
+    Description of the clbk function:
            
-    lore ipsum
+    This function is the callback of the /occup_middleware server. 
+    Once the empty message is receive from client it means that the middle of the table is occupied.
+    middleware variable is set to true
            
     
     Args :
-      None
+      req(Empty)
     
     Returns :
       None
@@ -146,20 +149,21 @@ class GripperCommander():
 
     def go_to_pose_goal(self, pose_goal):
         """
-        Description of the '' function:
+        Description of the go_to_pose_goal function:
            
-        lore ipsum
+        This function is used to ask to Moveit to generated a plan for reaching a goal position.
+        Once the plan is retrived this is published on /baxter_movit_trajectory to make execute it
            
     
-         Args :
-             None
+        Args :
+             pose_goal(Pose) is the position that the end effector should reaches
     
-         Returns :
+        Returns :
              None
 
         """
         global pub
-        print(pose_goal)
+        #single subscrition to get the state of Baxter joints
         camera_info = rospy.wait_for_message(
             '/baxter_joint_states', JointState)
         array_states = [0, 0, 0, 0, 0, 0, 0]
@@ -167,7 +171,7 @@ class GripperCommander():
             array_states[i - 8] = camera_info.position[i]
 
         joint_state = JointState()
-        # joint_state.header = Header()
+        
         joint_state.header.stamp = rospy.Time.now()
         joint_state.name = [
             'left_s0',
@@ -180,13 +184,19 @@ class GripperCommander():
         joint_state.position = array_states
         moveit_robot_state = RobotState()
         moveit_robot_state.joint_state = joint_state
+        #gripper actual state is set as starting state
         (self.move_group).set_start_state(moveit_robot_state)
+        #set a tolerance of 1mm
         (self.move_group).set_goal_tolerance(0.001)
+        #set the goal pose as target
         (self.move_group).set_pose_target(pose_goal)
+        #ask for a plan
         plan = self.move_group.plan()
+        #fill the fields of BaxterTrajectory.msg
         msg = BaxterTrajectory()
         msg.trajectory.append(plan[1])
         msg.arm = "left"
+        #publish the plan to make execute it
         pub.publish(msg)
         self.move_group.stop()
 
@@ -194,13 +204,13 @@ class GripperCommander():
 
     def add_table(self, timeout=4):
         """
-        Description of the '' function:
+        Description of the add_table function:
            
-        lore ipsum
+        This method is used to add to the scene fixed obstacles
            
     
         Args :
-             None
+             timeout
     
         Returns :
              None
@@ -210,31 +220,39 @@ class GripperCommander():
         scene = self.scene
         box_pose = PoseStamped()
         box_pose.header.frame_id = 'world'
-        # invertire coordinate
+        # add the table
+        #chose position where locate the obstacle
         box_pose.pose.position.x = 0
         box_pose.pose.position.y = 0
         box_pose.pose.position.z = 0.4
         box_name = "Table"
+        #add the box chosing suitable dimensions
         scene.add_box(box_name, box_pose, size=(2, 2, 0.75))
+        #add the box in order to avoid collision with human body
+        #set the pose
         box_pose.pose.position.x = 1.1
         box_pose.pose.position.y = 0
         box_pose.pose.position.z = 1
         box_name = "Human"
+        #add to the scene
         scene.add_box(box_name, box_pose, size=(0.1, 2, 2))
 
 
     def difference(self, a, b, threshold):
         """
-        Description of the '' function:
+        Description of the difference function:
            
-        lore ipsum
+        return true if the distance is smaller then the threshold
            
     
         Args :
-             None
+             a(float64)
+             b(float64)
+             threshold(float64)
     
         Returns :
-             None
+             bool
+             
 
         """
         
@@ -243,9 +261,9 @@ class GripperCommander():
 
     def fsm(self):
         """
-        Description of the '' function:
+        Description of the fsm function:
            
-        lore ipsum
+        In these function is contained the finite state machine of the node.
            
     
         Args :
@@ -260,40 +278,47 @@ class GripperCommander():
         global x_box, y_box, z_box
         global x_goal_trans, y_goal_trans, z_goal_trans, pub_oc, middleware , client_mid
        
-        if state == 0:  # rest
+        if state == 0:  #REST STATE
             x_goal_trans = 0
             y_goal_trans = 0
+            #if all blocks are inside the box then end variable becomes true
             if blocks_array[0] == 0 and blocks_array[1] == 0 and blocks_array[2] == 0 and blocks_array[3] == 0 and blocks_array[4] == 0:
                 end = True
+            #on the other case is contntinuously checked the blocksarray to see if there is a blcks to grasp    
             else:
+                #if there is a box at left or at the centre the state become 1
                 for i in range(0, 5):
                     if blocks_array[i] == 2 or blocks_array[i] == 3:
                         state = 1
-        if state == 1:  # reaching
+        if state == 1:  # REACHING STATE: the robot reack the blocks to grasp
             
             x_ee = ee.position.x
             y_ee = ee.position.y
             z_ee = ee.position.z
-            if not working:
+            if not working: #if the robot is not moving
                 
                
                 rospy.sleep(4)
-                if middleware:
+                if middleware: #middleware is set to true if there is a block at the centre
+                #In that case blocks at the centre has priority
+                #find which block is at the centre
                     for j in range(5):
                         if blocks_array[j] == 2:
                             selected_position = j
                             
                             break
-                else:  # mettiamo i blocchi in modo tale che i primi a essere presi sono quelli a destra?
+                else:  #if there are not blocks at the centre find the first available node in the blocksarray
                     for j in range(5):
                         if blocks_array[j] == 3:
                             selected_position = j
                             break
         
-                
+                #get the transformation of the block to reach
                 goal_trans = client_trans(blocks_id[selected_position])
+                #set the goal to reach
                 x_goal_trans = goal_trans.transform.transform.translation.x
                 y_goal_trans = goal_trans.transform.transform.translation.y
+                #x and y coordinates of the goal are the same of the block
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_goal_trans
                 goal_pose.position.y = y_goal_trans
@@ -302,11 +327,13 @@ class GripperCommander():
                 goal_pose.orientation.y = -1
                 goal_pose.orientation.z = 0
                 goal_pose.orientation.w = 0
+                #call the method for plan and make execute the goal
                 self.go_to_pose_goal(goal_pose)
                 working = True
             else:
+            #if the gripper is working
 
-           
+                #monitor the distance with the goal
                 if self.difference(
                         x_goal_trans,
                         x_ee,
@@ -314,26 +341,28 @@ class GripperCommander():
                         y_goal_trans,
                         y_ee,
                         0.01):
-
+                    #if the goal has been reached
+                    #the state is updated
                     state = 2
                     working = False
+                    #robot ee is opened
                     msg_oc=Bool()
                     msg_oc.data=False
                     pub_oc.publish(msg_oc)
                     
-        if state == 2:  # discesa
+        if state == 2:  # DOWNHILL STATE: the robot reaches the goal
             x_ee = ee.position.x
             y_ee = ee.position.y
             z_ee = ee.position.z
 
             if not working:
-                print("stato 2")
+                #get the transformation of the selected blocks
                 goal_trans = client_trans(blocks_id[selected_position])
                 x_goal_trans = goal_trans.transform.transform.translation.x
                 y_goal_trans = goal_trans.transform.transform.translation.y
                 z_goal_trans = goal_trans.transform.transform.translation.z
                 
-
+                #the goal pose is the same of the block
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_goal_trans
                 goal_pose.position.y = y_goal_trans
@@ -342,26 +371,29 @@ class GripperCommander():
                 goal_pose.orientation.y = -1
                 goal_pose.orientation.z = 0
                 goal_pose.orientation.w = 0
+                #plan and execute
                 self.go_to_pose_goal(goal_pose)
                 working = True
+            #if the gripper is working
             else:
-
+                #monitor is on z coordinate of the end effector that must reach the heigth of the block
                 if self.difference(z_goal_trans, z_ee, 0.01):
 
                     state = 3
                     working = False
+                    #grasp the block
                     msg_oc=Bool()
                     msg_oc.data=True
                     pub_oc.publish(msg_oc)
                     
-        if state == 3:  # sollevamento
+        if state == 3:  #ASCENT STATE
             x_ee = ee.position.x
             y_ee = ee.position.y
             z_ee = ee.position.z
          
             if not working:
-                print('stato 3')
                 
+                #the gripper must go a movement of ascent along the z axis
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_ee
                 goal_pose.position.y = y_ee
@@ -374,27 +406,27 @@ class GripperCommander():
                 self.go_to_pose_goal(goal_pose)
                 working = True
             else:
-
+                #monitor again only the z coordinates
                 if self.difference(1, z_ee, 0.01):
 
                     state = 4
                     working = False
-                    
+                    #middleware is set to false
                     middleware = False
                     resp = client_mid()
                     
-        if state == 4:  # raggiungo la scatola
+        if state == 4:  #REACHING THE BLUE BOX
 
             x_ee = ee.position.x
             y_ee = ee.position.y
             z_ee = ee.position.z
             if not working:
-                print('stato 4')
+                #get the transform of the blue box
                 box = client_trans('Bluebox')
                 x_box = box.transform.transform.translation.x
                 y_box = box.transform.transform.translation.y
                 z_box = box.transform.transform.translation.z
-
+                #goal pose has same x and y coordinates of the blue-box
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_box
                 goal_pose.position.y = y_box
@@ -406,7 +438,8 @@ class GripperCommander():
                 self.go_to_pose_goal(goal_pose)
                 working = True
             else:
-
+                #monitor x and y coordinates of the end effector,
+                # when they are the same of the box the goal is considered reached
                 if self.difference(
                         x_box,
                         x_ee,
@@ -417,12 +450,12 @@ class GripperCommander():
 
                     state = 5
                     working = False
-        if state == 5:  # discesa
+        if state == 5:  # DOWNHILL STATE
             x_ee = ee.position.x
             y_ee = ee.position.y
             z_ee = ee.position.z
             if not working:
-
+                #the goal pose is above the blue box
                 goal_pose = geometry_msgs.msg.Pose()
                 goal_pose.position.x = x_ee
                 goal_pose.position.y = y_ee
@@ -434,9 +467,9 @@ class GripperCommander():
                 self.go_to_pose_goal(goal_pose)
                 working = True
             else:
-
+                #when a certain height is reached the block is released
                 if self.difference(z_box+0.35, z_ee, 0.01):
-
+                    #state return to rest
                     state = 0
                     working = False
                     msg_oc=Bool()
@@ -446,11 +479,16 @@ class GripperCommander():
                     
 
 if __name__ == "__main__":
+    
     global blocks_array, client_trans, state, working, end, selected_position
     global client_trans, pub_oc
     global x_box, y_box, z_box
     global x_goal_trans, y_goal_trans, z_goal_trans, middleware
+    
+    
     rospy.init_node("fsm_left")
+    
+    #initialisation of needed variables
     blocks_array = [4, 4, 4, 4, 4]
     state = 0
     end = False
@@ -464,6 +502,8 @@ if __name__ == "__main__":
     y_box = 0
     z_box = 0
     middleware = False
+    
+    
     s1 = rospy.Service('/occup_middleware', Empty, clbk)
     client_mid = rospy.ServiceProxy('/free_middleware',  Empty)
     
@@ -476,9 +516,10 @@ if __name__ == "__main__":
     pub_oc = rospy.Publisher('/open_close_left',
                           Bool,
                           queue_size=20)
-                   
+    #OBJECT of the class GripperCommander()               
     g_left = GripperCommander()
     rospy.sleep(1)
+    #set obstacles
     g_left.add_table()
     msg_oc=Bool()
     msg_oc.data=False

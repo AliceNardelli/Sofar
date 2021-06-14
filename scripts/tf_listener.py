@@ -25,6 +25,7 @@ Publishes to:
 
 Service :
      /gl/transform 
+     /gr/transform
 
 Clients:
      None
@@ -43,23 +44,21 @@ from human_baxter_collaboration.msg import UnityTf
 from tf import transformations
 from std_srvs.srv import *
 from human_baxter_collaboration.srv import Transformation
-# listener=None
-# tfBuffer=None
-# rate=0
+
 
 
 def clbk(req):
     """
-    Description of the '' function:
+    Description of the clbk function:
            
-    lore ipsum
-           
+    Inside the callback of the service it is firstly takes as request the needed frame. Then il listen for the tranformation done through lookup_transform method. 
+    Finally return as result the obtained transformation.
     
-     Args :
-             None
+    Args :
+             req(str) it takes as argument the string related to the frame that client desires to transform
     
     Returns :
-             None
+             t(TransformedStamped) it 
 
     """
     global listener
@@ -81,6 +80,8 @@ if __name__ == '__main__':
     global tfBuffer
     global rate
     rospy.init_node('tf_listener')
+    
+    #buffer and listener needed for the transformation are declared
     tfBuffer = tf2_ros.Buffer()
     listener = tf2_ros.TransformListener(tfBuffer)
     s1 = rospy.Service('/gl/transform', Transformation, clbk)
