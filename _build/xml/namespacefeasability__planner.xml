@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacefeasability__planner" kind="namespace" language="Python">
+    <compoundname>feasability_planner</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacefeasability__planner_1af1793bf410acb5956c40bcd6e6e9de38" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list feasability_planner.blocks_state</definition>
+        <argsstring></argsstring>
+        <name>blocks_state</name>
+        <initializer>=  [4, 4, 4, 4, 4]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="101" column="1" bodyfile="scripts/feasability_planner.py" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1a8991f72a552677346a02efaec4c4649f" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list feasability_planner.blocks_id</definition>
+        <argsstring></argsstring>
+        <name>blocks_id</name>
+        <initializer>=  [&apos;C&apos;, &apos;E&apos;, &apos;G&apos;, &apos;I&apos;, &apos;M&apos;, &apos;A&apos;, &apos;B&apos;, &apos;D&apos;, &apos;F&apos;, &apos;H&apos;, &apos;L&apos;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="102" column="1" bodyfile="scripts/feasability_planner.py" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1abf742c86114849a23d7df8e5924bb96a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>feasability_planner.client_trans</definition>
+        <argsstring></argsstring>
+        <name>client_trans</name>
+        <initializer>=  rospy.ServiceProxy(&apos;/gl/transform&apos;, Transformation)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="104" column="1" bodyfile="scripts/feasability_planner.py" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1a1384a9a4b4a1c4813214578cd8686b92" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>feasability_planner.pub</definition>
+        <argsstring></argsstring>
+        <name>pub</name>
+        <initializer>=  rospy.Publisher(&apos;/<ref refid="namespacefeasability__planner_1af1793bf410acb5956c40bcd6e6e9de38" kindref="member">blocks_state</ref>&apos;, BlocksState, queue_size=1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="106" column="1" bodyfile="scripts/feasability_planner.py" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1a5d9274681041fa7f14e8ea36bdb36017" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>feasability_planner.state_message</definition>
+        <argsstring></argsstring>
+        <name>state_message</name>
+        <initializer>=  BlocksState()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="107" column="1" bodyfile="scripts/feasability_planner.py" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1a1684af84805ccf664abe8c22b3c4cb42" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>def feasability_planner::crowded</definition>
+        <argsstring></argsstring>
+        <name>crowded</name>
+        <initializer>=  False</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="108" column="1" bodyfile="scripts/feasability_planner.py" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1a87ebf4e788f20e063a8ea78924889012" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>feasability_planner.rate</definition>
+        <argsstring></argsstring>
+        <name>rate</name>
+        <initializer>=  rospy.Rate(15)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="109" column="1" bodyfile="scripts/feasability_planner.py" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1a13bfa2b043a9ec4ebe4ae37775335914" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>feasability_planner.blue_box_transformation</definition>
+        <argsstring></argsstring>
+        <name>blue_box_transformation</name>
+        <initializer>=  <ref refid="namespacefeasability__planner_1abf742c86114849a23d7df8e5924bb96a" kindref="member">client_trans</ref>(&apos;Bluebox&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="113" column="1" bodyfile="scripts/feasability_planner.py" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1a020cfe3122bc0476d1e8e294013dec18" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>feasability_planner.referred_block</definition>
+        <argsstring></argsstring>
+        <name>referred_block</name>
+        <initializer>=  <ref refid="namespacefeasability__planner_1abf742c86114849a23d7df8e5924bb96a" kindref="member">client_trans</ref>(<ref refid="namespacefeasability__planner_1a8991f72a552677346a02efaec4c4649f" kindref="member">blocks_id</ref>[i])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="118" column="1" bodyfile="scripts/feasability_planner.py" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1ace9ef0d99ba1938a0dab99dbcf9e5585" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>feasability_planner.other_block</definition>
+        <argsstring></argsstring>
+        <name>other_block</name>
+        <initializer>=  <ref refid="namespacefeasability__planner_1abf742c86114849a23d7df8e5924bb96a" kindref="member">client_trans</ref>(<ref refid="namespacefeasability__planner_1a8991f72a552677346a02efaec4c4649f" kindref="member">blocks_id</ref>[j])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="123" column="1" bodyfile="scripts/feasability_planner.py" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefeasability__planner_1a48fadf269301e70cdda764dacc12ee00" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>feasability_planner.blocksarray</definition>
+        <argsstring></argsstring>
+        <name>blocksarray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="153" column="1" bodyfile="scripts/feasability_planner.py" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacefeasability__planner_1a93be9c9002967cb05b870ca4560a0f7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def feasability_planner.distance_between_blocks</definition>
+        <argsstring>(f_block, s_block, threshold)</argsstring>
+        <name>distance_between_blocks</name>
+        <param>
+          <type>f_block</type>
+          <defname>f_block</defname>
+        </param>
+        <param>
+          <type>s_block</type>
+          <defname>s_block</defname>
+        </param>
+        <param>
+          <type>threshold</type>
+          <defname>threshold</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Description of the distance_between_blocks function:
+       
+the planar distance between the two transform is comuputed.
+if the distance is greater than the threshold is return false
+if the distance is below z value is compared
+if z of the first transform is below the z of the second transform is return true
+otherwise is return false
+       
+
+Args :
+  f_block(Transformation) a tranform of a block
+  s_block(Transformation) a tranform of a block
+  threshold(float64)
+
+Returns :
+  bool</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/feasability_planner.py" line="47" column="1" bodyfile="scripts/feasability_planner.py" bodystart="47" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: feasability_planner
+    :platform: Unix
+    :synopsis: Python module for implementing the pheasibility planner
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+                  Alice Nardelli - alice.nardelli98@gmail.com
+                  Federico Civetta - fedeunivers@gmail.com
+                  Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+This  component  is  involved  in  the  perception  and  scene  analysis.
+It  continuously  asks  totf_listener.pyfor  the  transformation  of  each  
+blue  block  on  the  table.   Then  it  publishes an array with 
+how blocks are arranged in the scene
+
+Subscribes to:
+     None
+
+Publishes to:
+    /blocks_state
+
+Service :
+     None 
+
+Clients:
+     /gl/transform</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/feasability_planner.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

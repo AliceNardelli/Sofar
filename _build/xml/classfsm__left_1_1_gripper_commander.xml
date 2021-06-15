@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classfsm__left_1_1_gripper_commander" kind="class" language="Python" prot="public">
+    <compoundname>fsm_left::GripperCommander</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classfsm__left_1_1_gripper_commander_1a369d64212c9285dba067d1d5b4d6e997" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.GripperCommander::gripper</definition>
+        <argsstring></argsstring>
+        <name>gripper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="138" column="1" bodyfile="scripts/fsm_left.py" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfsm__left_1_1_gripper_commander_1a22e322d80eb5ef64403094049463d209" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.GripperCommander::scene</definition>
+        <argsstring></argsstring>
+        <name>scene</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="140" column="1" bodyfile="scripts/fsm_left.py" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfsm__left_1_1_gripper_commander_1abf1e3f17825219445accef26b72e1bb9" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.GripperCommander::group_name</definition>
+        <argsstring></argsstring>
+        <name>group_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="141" column="1" bodyfile="scripts/fsm_left.py" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfsm__left_1_1_gripper_commander_1a1d6e4a02a50e4e1a40d739ff48f1b2ef" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.GripperCommander::move_group</definition>
+        <argsstring></argsstring>
+        <name>move_group</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="142" column="1" bodyfile="scripts/fsm_left.py" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfsm__left_1_1_gripper_commander_1ab8ce1170baae742c9a8d893a6c8a3460" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.GripperCommander::planning_frame</definition>
+        <argsstring></argsstring>
+        <name>planning_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="144" column="1" bodyfile="scripts/fsm_left.py" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfsm__left_1_1_gripper_commander_1ab437c2b836ac7b88a174bf3d18802263" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.GripperCommander::eef_link</definition>
+        <argsstring></argsstring>
+        <name>eef_link</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="146" column="1" bodyfile="scripts/fsm_left.py" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfsm__left_1_1_gripper_commander_1adcb45c0931d3809ab2da13e0f00a1211" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.GripperCommander::group_names</definition>
+        <argsstring></argsstring>
+        <name>group_names</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="147" column="1" bodyfile="scripts/fsm_left.py" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classfsm__left_1_1_gripper_commander_1afdf2bcf02c04f374338fcdbf7a9040d2" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.GripperCommander::box_name</definition>
+        <argsstring></argsstring>
+        <name>box_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="148" column="1" bodyfile="scripts/fsm_left.py" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classfsm__left_1_1_gripper_commander_1a5b8f19eaa731a3db9e091424c934fd8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm_left.GripperCommander.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="134" column="1" bodyfile="scripts/fsm_left.py" bodystart="134" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classfsm__left_1_1_gripper_commander_1aeadb05aa17f037555ce48019bf25a3be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm_left.GripperCommander.go_to_pose_goal</definition>
+        <argsstring>(self, pose_goal)</argsstring>
+        <name>go_to_pose_goal</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>pose_goal</type>
+          <defname>pose_goal</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Description of the go_to_pose_goal function:
+   
+This function is used to ask to Moveit to generated a plan for reaching a goal position.
+Once the plan is retrived this is published on /baxter_movit_trajectory to make execute it
+   
+    
+Args :
+     pose_goal(Pose) is the position that the end effector should reaches
+    
+Returns :
+     None</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="150" column="1" bodyfile="scripts/fsm_left.py" bodystart="150" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classfsm__left_1_1_gripper_commander_1ad6209b9b5a002fd01b166b274a500293" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm_left.GripperCommander.add_table</definition>
+        <argsstring>(self, timeout=4)</argsstring>
+        <name>add_table</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>timeout</type>
+          <defname>timeout</defname>
+          <defval>4</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Description of the add_table function:
+   
+This method is used to add to the scene fixed obstacles
+   
+    
+Args :
+     timeout
+    
+Returns :
+     None</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="205" column="1" bodyfile="scripts/fsm_left.py" bodystart="205" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classfsm__left_1_1_gripper_commander_1a1e306bf502b36fa1a38fc8b575213251" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm_left.GripperCommander.difference</definition>
+        <argsstring>(self, a, b, threshold)</argsstring>
+        <name>difference</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>a</type>
+          <defname>a</defname>
+        </param>
+        <param>
+          <type>b</type>
+          <defname>b</defname>
+        </param>
+        <param>
+          <type>threshold</type>
+          <defname>threshold</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Description of the difference function:
+   
+return true if the distance is smaller then the threshold
+   
+    
+Args :
+     a(float64)
+     b(float64)
+     threshold(float64)
+    
+Returns :
+     bool</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="241" column="1" bodyfile="scripts/fsm_left.py" bodystart="241" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classfsm__left_1_1_gripper_commander_1ac6af3b18a9ec37a8df8fec33517e1808" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm_left.GripperCommander.fsm</definition>
+        <argsstring>(self)</argsstring>
+        <name>fsm</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Description of the fsm function:
+   
+In these function is contained the finite state machine of the node.
+   
+    
+Args :
+     None
+    
+Returns :
+     None</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="262" column="1" bodyfile="scripts/fsm_left.py" bodystart="262" bodyend="480"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>This is a the class representing the implementation of the Gripper commander
+
+param object: None
+:type object: class:`GripperCommander`
+:param name: scene
+:type name: Any
+:param name: group_name referring to the left arm group
+:type str
+:param name: move_group
+:type Any
+:param name: planning_frame
+:type Any
+:param name: eef_link
+:type Any
+:param name: group_names
+:type str
+:param name: box_name the name of the box 
+:type str</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/fsm_left.py" line="111" column="1" bodyfile="scripts/fsm_left.py" bodystart="111" bodyend="481"/>
+    <listofallmembers>
+      <member refid="classfsm__left_1_1_gripper_commander_1a5b8f19eaa731a3db9e091424c934fd8e" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>__init__</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1ad6209b9b5a002fd01b166b274a500293" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>add_table</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1afdf2bcf02c04f374338fcdbf7a9040d2" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>box_name</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1a1e306bf502b36fa1a38fc8b575213251" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>difference</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1ab437c2b836ac7b88a174bf3d18802263" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>eef_link</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1ac6af3b18a9ec37a8df8fec33517e1808" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>fsm</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1aeadb05aa17f037555ce48019bf25a3be" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>go_to_pose_goal</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1a369d64212c9285dba067d1d5b4d6e997" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>gripper</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1abf1e3f17825219445accef26b72e1bb9" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>group_name</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1adcb45c0931d3809ab2da13e0f00a1211" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>group_names</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1a1d6e4a02a50e4e1a40d739ff48f1b2ef" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>move_group</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1ab8ce1170baae742c9a8d893a6c8a3460" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>planning_frame</name></member>
+      <member refid="classfsm__left_1_1_gripper_commander_1a22e322d80eb5ef64403094049463d209" prot="public" virt="non-virtual"><scope>fsm_left::GripperCommander</scope><name>scene</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

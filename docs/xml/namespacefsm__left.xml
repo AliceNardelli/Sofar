@@ -1,0 +1,466 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacefsm__left" kind="namespace" language="Python">
+    <compoundname>fsm_left</compoundname>
+    <innerclass refid="classfsm__left_1_1_gripper_commander" prot="public">fsm_left::GripperCommander</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacefsm__left_1a683da294f45c1392a3706a5863a5ff46" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list fsm_left.blocks_array</definition>
+        <argsstring></argsstring>
+        <name>blocks_array</name>
+        <initializer>=  [4, 4, 4, 4, 4]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="492" column="1" bodyfile="scripts/fsm_left.py" bodystart="492" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a48c7555b5fc466d5f6c5f5e18b701ae4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsm_left.state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="493" column="1" bodyfile="scripts/fsm_left.py" bodystart="493" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a6b23a3269167494fc44332db9d2662a1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool fsm_left.end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <initializer>=  False</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="494" column="1" bodyfile="scripts/fsm_left.py" bodystart="494" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a518ca3f1e9ae85793ad3aa50aa1ad906" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool fsm_left.working</definition>
+        <argsstring></argsstring>
+        <name>working</name>
+        <initializer>=  False</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="495" column="1" bodyfile="scripts/fsm_left.py" bodystart="495" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a57cf4af0c99b731c7621066ce7983889" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list fsm_left.blocks_id</definition>
+        <argsstring></argsstring>
+        <name>blocks_id</name>
+        <initializer>=  [&apos;C&apos;, &apos;E&apos;, &apos;G&apos;, &apos;I&apos;, &apos;M&apos;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="496" column="1" bodyfile="scripts/fsm_left.py" bodystart="496" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1af25812c38691ed8e5b8553f6ebaad0a0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsm_left.selected_position</definition>
+        <argsstring></argsstring>
+        <name>selected_position</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="497" column="1" bodyfile="scripts/fsm_left.py" bodystart="497" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a15ec7594c17885b34f55628fb708118b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsm_left.x_goal_trans</definition>
+        <argsstring></argsstring>
+        <name>x_goal_trans</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="498" column="1" bodyfile="scripts/fsm_left.py" bodystart="498" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a3b5d600fc0ec27d614fe684608fa3154" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsm_left.y_goal_trans</definition>
+        <argsstring></argsstring>
+        <name>y_goal_trans</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="499" column="1" bodyfile="scripts/fsm_left.py" bodystart="499" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a8f595b62a9f028605c1f637fbb87aa3f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsm_left.z_goal_trans</definition>
+        <argsstring></argsstring>
+        <name>z_goal_trans</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="500" column="1" bodyfile="scripts/fsm_left.py" bodystart="500" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a5dee2805d971a3875efff5f93e9593ca" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsm_left.x_box</definition>
+        <argsstring></argsstring>
+        <name>x_box</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="501" column="1" bodyfile="scripts/fsm_left.py" bodystart="501" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1abc7d215d14adac4fd1205bbbc606019b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsm_left.y_box</definition>
+        <argsstring></argsstring>
+        <name>y_box</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="502" column="1" bodyfile="scripts/fsm_left.py" bodystart="502" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a2bebe63deffe918b9524b7e13e651b75" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int fsm_left.z_box</definition>
+        <argsstring></argsstring>
+        <name>z_box</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="503" column="1" bodyfile="scripts/fsm_left.py" bodystart="503" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a99c35ace79fc92a3555fb1ed273aaaa2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool fsm_left.middleware</definition>
+        <argsstring></argsstring>
+        <name>middleware</name>
+        <initializer>=  False</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="504" column="1" bodyfile="scripts/fsm_left.py" bodystart="504" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a921987dcd68f37489aedda66a24b731a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.s1</definition>
+        <argsstring></argsstring>
+        <name>s1</name>
+        <initializer>=  rospy.Service(&apos;/occup_middleware&apos;, Empty, <ref refid="namespacefsm__left_1ae0f7abb827ee0b2c6a63eb6982bf8af7" kindref="member">clbk</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="507" column="1" bodyfile="scripts/fsm_left.py" bodystart="507" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a9b4e68cb880f7cbd3765aa11c4f307b3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.client_mid</definition>
+        <argsstring></argsstring>
+        <name>client_mid</name>
+        <initializer>=  rospy.ServiceProxy(&apos;/free_middleware&apos;,  Empty)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="508" column="1" bodyfile="scripts/fsm_left.py" bodystart="508" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a87e0c5acb183218a23564470b29fc296" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.client_trans</definition>
+        <argsstring></argsstring>
+        <name>client_trans</name>
+        <initializer>=  rospy.ServiceProxy(&apos;/gl/transform&apos;, Transformation)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="510" column="1" bodyfile="scripts/fsm_left.py" bodystart="510" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a62594b1d6fce97825e6f9bd274d6d88f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.sub_array</definition>
+        <argsstring></argsstring>
+        <name>sub_array</name>
+        <initializer>=  rospy.Subscriber(&quot;/blocks_state&quot;, BlocksState, <ref refid="namespacefsm__left_1a7933ddcd833f9964cbd133099fcf7792" kindref="member">clbk_array</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="511" column="1" bodyfile="scripts/fsm_left.py" bodystart="511" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1ae662a247cc24b667a1415e409404c895" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.sub</definition>
+        <argsstring></argsstring>
+        <name>sub</name>
+        <initializer>=  rospy.Subscriber(&quot;/left_gripper_pose&quot;, PoseStamped, <ref refid="namespacefsm__left_1a4ebe660a02f4a5c2d4593149e9c592e7" kindref="member">clbk_ee</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="512" column="1" bodyfile="scripts/fsm_left.py" bodystart="512" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1a2576754b1cf2d2c6f8a2ffd4ede40837" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.pub</definition>
+        <argsstring></argsstring>
+        <name>pub</name>
+        <initializer>=  rospy.Publisher(&apos;/baxter_moveit_trajectory&apos;,
+                          BaxterTrajectory,
+                          queue_size=20)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="513" column="1" bodyfile="scripts/fsm_left.py" bodystart="513" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1ad41fc343b75ae8740123dfe64d4343c5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.pub_oc</definition>
+        <argsstring></argsstring>
+        <name>pub_oc</name>
+        <initializer>=  rospy.Publisher(&apos;/open_close_left&apos;,
+                          Bool,
+                          queue_size=20)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="516" column="1" bodyfile="scripts/fsm_left.py" bodystart="516" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1aea3a0ffe41c151527c327e411b06f922" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.g_left</definition>
+        <argsstring></argsstring>
+        <name>g_left</name>
+        <initializer>=  <ref refid="classfsm__left_1_1_gripper_commander" kindref="compound">GripperCommander</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="520" column="1" bodyfile="scripts/fsm_left.py" bodystart="520" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1af5b90ca741e2710964215e10d6c61adf" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.msg_oc</definition>
+        <argsstring></argsstring>
+        <name>msg_oc</name>
+        <initializer>= Bool()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="524" column="1" bodyfile="scripts/fsm_left.py" bodystart="524" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1ad01df5bc071ae40561907a68044bf6b5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="525" column="1" bodyfile="scripts/fsm_left.py" bodystart="525" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacefsm__left_1ac9ef200c2c7bd9b8dc3e44d75708a687" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>fsm_left.rate</definition>
+        <argsstring></argsstring>
+        <name>rate</name>
+        <initializer>=  rospy.Rate(10)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="527" column="1" bodyfile="scripts/fsm_left.py" bodystart="527" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacefsm__left_1a7933ddcd833f9964cbd133099fcf7792" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm_left.clbk_array</definition>
+        <argsstring>(msg)</argsstring>
+        <name>clbk_array</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Description of the clbk_array function:
+       
+continuously update the array in which are contained informations about blocks state
+       
+
+Args :
+  msg(int64[]) the blocksarray field of BlocksState.msg
+
+Returns :
+  None
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="57" column="1" bodyfile="scripts/fsm_left.py" bodystart="57" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacefsm__left_1a4ebe660a02f4a5c2d4593149e9c592e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm_left.clbk_ee</definition>
+        <argsstring>(msg)</argsstring>
+        <name>clbk_ee</name>
+        <param>
+          <type>msg</type>
+          <defname>msg</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Description of the clbk_ee function:
+       
+Read the actual position of the end effector of the left gripper, and copy subscribed value inside a global variable.
+       
+
+Args :
+  msg(PoseStamped)
+
+Returns :
+  None
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="75" column="1" bodyfile="scripts/fsm_left.py" bodystart="75" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacefsm__left_1ae0f7abb827ee0b2c6a63eb6982bf8af7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def fsm_left.clbk</definition>
+        <argsstring>(req)</argsstring>
+        <name>clbk</name>
+        <param>
+          <type>req</type>
+          <defname>req</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Description of the clbk function:
+       
+This function is the callback of the /occup_middleware server. 
+Once the empty message is receive from client it means that the middle of the table is occupied.
+middleware variable is set to true
+       
+
+Args :
+  req(Empty)
+
+Returns :
+  None</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/fsm_left.py" line="91" column="1" bodyfile="scripts/fsm_left.py" bodystart="91" bodyend="110"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: fsm_left
+    :platform: Unix
+    :synopsis: Python module for implementing the finite state machine of the left gripper 
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+          Alice Nardelli - alice.nardelli98@gmail.com
+          Federico Civetta - fedeunivers@gmail.com
+          Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+The ontology and the planner is done by the two finite state machines node.  We have decidedto implement a specific node for each gripper in order to manage them individually
+
+Subscribes to:
+     /blocks_state
+     /left_gripper_pose
+     /baxter_joint_states
+
+Publishes to:
+    /baxter_movit_trajectory
+    /open_close_left
+
+Service servers :
+     /occup_middleware 
+
+Clients:
+     /free_middleware
+     /gl/trnasform</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/fsm_left.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

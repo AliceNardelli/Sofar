@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacetf__listener" kind="namespace" language="Python">
+    <compoundname>tf_listener</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacetf__listener_1a3d214b73fdb62282a9b1e104e47e4940" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>tf_listener.tfBuffer</definition>
+        <argsstring></argsstring>
+        <name>tfBuffer</name>
+        <initializer>=  tf2_ros.Buffer()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/tf_listener.py" line="85" column="1" bodyfile="scripts/tf_listener.py" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetf__listener_1a0676c32e513bee8a437e9f1728d72c1e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>tf_listener.listener</definition>
+        <argsstring></argsstring>
+        <name>listener</name>
+        <initializer>=  tf2_ros.TransformListener(<ref refid="namespacetf__listener_1a3d214b73fdb62282a9b1e104e47e4940" kindref="member">tfBuffer</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/tf_listener.py" line="86" column="1" bodyfile="scripts/tf_listener.py" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetf__listener_1a1d6055fdd3f8e2a535e6405e2312f102" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>tf_listener.s1</definition>
+        <argsstring></argsstring>
+        <name>s1</name>
+        <initializer>=  rospy.Service(&apos;/gl/transform&apos;, Transformation, <ref refid="namespacetf__listener_1a6a42e9857f2b84746a361a48a699a21b" kindref="member">clbk</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/tf_listener.py" line="87" column="1" bodyfile="scripts/tf_listener.py" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetf__listener_1abdbab818599d57e3df9eb92471eef3f0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>tf_listener.s2</definition>
+        <argsstring></argsstring>
+        <name>s2</name>
+        <initializer>=  rospy.Service(&apos;/gr/transform&apos;, Transformation, <ref refid="namespacetf__listener_1a6a42e9857f2b84746a361a48a699a21b" kindref="member">clbk</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/tf_listener.py" line="88" column="1" bodyfile="scripts/tf_listener.py" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacetf__listener_1aa02eca2aac97dc681caee9ad43db2255" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>tf_listener.rate</definition>
+        <argsstring></argsstring>
+        <name>rate</name>
+        <initializer>=  rospy.Rate(20)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/tf_listener.py" line="89" column="1" bodyfile="scripts/tf_listener.py" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetf__listener_1a6a42e9857f2b84746a361a48a699a21b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def tf_listener.clbk</definition>
+        <argsstring>(req)</argsstring>
+        <name>clbk</name>
+        <param>
+          <type>req</type>
+          <defname>req</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Description of the clbk function:
+       
+Inside the callback of the service it is firstly takes as request the needed frame. Then il listen for the tranformation done through lookup_transform method. 
+Finally return as result the obtained transformation.
+
+Args :
+         req(str) it takes as argument the string related to the frame that client desires to transform
+
+Returns :
+         t(TransformedStamped) it </verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/tf_listener.py" line="50" column="1" bodyfile="scripts/tf_listener.py" bodystart="50" bodyend="75"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>.. module:: tf_listener
+:platform: Unix
+:synopsis: Python module for implementing the transfromation frame tf_listener
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+              Alice Nardelli - alice.nardelli98@gmail.com
+              Federico Civetta - fedeunivers@gmail.com
+              Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+
+This is a service node which is charachterized as follows:
+1. as request:  it listens the object transformations  from tf_publisher.py and 
+2. as response: it sends the listened object tranformations to another nodes.
+
+
+Subscribes to:
+ /blocks_state
+ /left_gripper_pose
+
+Publishes to:
+None
+None
+
+Service :
+ /gl/transform 
+ /gr/transform
+
+Clients:
+ None</verbatim> </para>
+    </detaileddescription>
+    <location file="scripts/tf_listener.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

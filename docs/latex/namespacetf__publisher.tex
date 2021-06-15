@@ -1,0 +1,54 @@
+\hypertarget{namespacetf__publisher}{}\doxysection{tf\+\_\+publisher Namespace Reference}
+\label{namespacetf__publisher}\index{tf\_publisher@{tf\_publisher}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetf__publisher_a098794c1bd6d8a62f91a6672b0f44cf6}{publish\+\_\+frames}} (msg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}.. module:: tf_publisher
+    :platform: Unix
+    :synopsis: Python module for implementing the frame transformation
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+          Alice Nardelli - alice.nardelli98@gmail.com
+          Federico Civetta - fedeunivers@gmail.com
+          Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+This node basically consists in an adapter which manage the frame transformation from Unity  to ROS domain 
+
+Subscribes to:
+     /unity_tf tf node in ROS
+     
+
+Publishes to:
+    None
+
+Service :
+     None
+
+Clients:
+     None\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetf__publisher_a098794c1bd6d8a62f91a6672b0f44cf6}\label{namespacetf__publisher_a098794c1bd6d8a62f91a6672b0f44cf6}} 
+\index{tf\_publisher@{tf\_publisher}!publish\_frames@{publish\_frames}}
+\index{publish\_frames@{publish\_frames}!tf\_publisher@{tf\_publisher}}
+\doxysubsubsection{\texorpdfstring{publish\_frames()}{publish\_frames()}}
+{\footnotesize\ttfamily def tf\+\_\+publisher.\+publish\+\_\+frames (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the publish_frame function:
+       
+This function compute the transform within the 
+world frame
+       
+
+ Args :
+         msg(TransformStamped) contains the trasnform
+
+Returns :
+         None\end{DoxyVerb}
+ 

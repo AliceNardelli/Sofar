@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="_c_make_lists_8txt" kind="file" language="C++">
+    <compoundname>CMakeLists.txt</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_c_make_lists_8txt_1a338d738b6e3b4ded73ed115121deb824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>cmake_minimum_required</definition>
+        <argsstring>(VERSION 3.0.2) project(human_baxter_collaboration) find_package(catkin REQUIRED COMPONENTS rospy std_msgs geometry_msgs ros_tcp_endpoint message_generation moveit_msgs sensor_msgs controller_manager roslaunch trajectory_msgs message_generation tf2_msgs) roslaunch_add_file_check(launch) add_message_files(DIRECTORY msg) add_service_files(DIRECTORY srv) generate_messages(DEPENDENCIES geometry_msgs std_msgs moveit_msgs sensor_msgs tf2_msgs) catkin_package() catkin_install_python(PROGRAMS scripts/tf_publisher.py scripts/server_endpoint_hrc.py scripts/tf_listener.py scripts/feasability_planner.py scripts/fsm_right.py scripts/fsm_left.py DESTINATION $</argsstring>
+        <name>cmake_minimum_required</name>
+        <param>
+          <type>VERSION 3.0.</type>
+          <declname>2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CMakeLists.txt" line="1" column="1" bodyfile="CMakeLists.txt" bodystart="1" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="_c_make_lists_8txt_1a006402f396238605f7b9d1a5febdad40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>install</definition>
+        <argsstring>(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION} PATTERN &quot;setup_assistant.launch&quot; EXCLUDE) install(DIRECTORY config DESTINATION $</argsstring>
+        <name>install</name>
+        <param>
+          <type>DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION} PATTERN &quot;setup_assistant.launch&quot;</type>
+          <declname>EXCLUDE</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CMakeLists.txt" line="45" column="1" bodyfile="CMakeLists.txt" bodystart="45" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"><ref refid="_c_make_lists_8txt_1a338d738b6e3b4ded73ed115121deb824" kindref="member">cmake_minimum_required</ref>(VERSION<sp/>3.0.2)</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"><ref refid="namespaceconf_1a45653c983098153b78e33600e39230eb" kindref="member">project</ref>(human_baxter_collaboration)</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">find_package(catkin<sp/>REQUIRED<sp/>COMPONENTS</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/>rospy</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>std_msgs</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>geometry_msgs</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>ros_tcp_endpoint</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>message_generation</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>moveit_msgs</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>sensor_msgs</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>controller_manager</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>roslaunch</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>trajectory_msgs</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>message_generation</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>tf2_msgs</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">roslaunch_add_file_check(launch)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">add_message_files(DIRECTORY<sp/>msg)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">add_service_files(DIRECTORY<sp/>srv)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">generate_messages(</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>DEPENDENCIES</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>geometry_msgs</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>std_msgs</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>moveit_msgs</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>sensor_msgs</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>tf2_msgs</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">catkin_package()</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">catkin_install_python(PROGRAMS</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>scripts/<ref refid="namespacetf__publisher" kindref="compound">tf_publisher</ref>.py</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>scripts/<ref refid="namespaceserver__endpoint__hrc" kindref="compound">server_endpoint_hrc</ref>.py</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>scripts/<ref refid="namespacetf__listener" kindref="compound">tf_listener</ref>.py</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>scripts/<ref refid="namespacefeasability__planner" kindref="compound">feasability_planner</ref>.py</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>scripts/<ref refid="namespacefsm__right" kindref="compound">fsm_right</ref>.py</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>scripts/<ref refid="namespacefsm__left" kindref="compound">fsm_left</ref>.py</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>DESTINATION<sp/>${CATKIN_PACKAGE_BIN_DESTINATION}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><ref refid="_c_make_lists_8txt_1a006402f396238605f7b9d1a5febdad40" kindref="member">install</ref>(DIRECTORY<sp/>launch<sp/>DESTINATION<sp/>${CATKIN_PACKAGE_SHARE_DESTINATION}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>PATTERN<sp/></highlight><highlight class="stringliteral">&quot;setup_assistant.launch&quot;</highlight><highlight class="normal"><sp/>EXCLUDE)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><ref refid="_c_make_lists_8txt_1a006402f396238605f7b9d1a5febdad40" kindref="member">install</ref>(DIRECTORY<sp/>config<sp/>DESTINATION<sp/>${CATKIN_PACKAGE_SHARE_DESTINATION})</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">#############</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">##<sp/>Testing<sp/>##</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">#############</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">##<sp/>Add<sp/>gtest<sp/>based<sp/>cpp<sp/>test<sp/>target<sp/>and<sp/>link<sp/>libraries</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">#<sp/>catkin_add_gtest(${PROJECT_NAME}-test<sp/>test/test_niryo_moveit.cpp)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">#<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(TARGET<sp/>${PROJECT_NAME}-test)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">#<sp/><sp/><sp/>target_link_libraries(${PROJECT_NAME}-test<sp/>${PROJECT_NAME})</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">#<sp/>endif()</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">##<sp/>Add<sp/>folders<sp/>to<sp/>be<sp/>run<sp/>by<sp/>python<sp/>nosetests</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>catkin_add_nosetests(test)</highlight></codeline>
+    </programlisting>
+    <location file="CMakeLists.txt"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,190 @@
+\hypertarget{classfsm__right_1_1_gripper_commander}{}\doxysection{fsm\+\_\+right.\+Gripper\+Commander Class Reference}
+\label{classfsm__right_1_1_gripper_commander}\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classfsm__right_1_1_gripper_commander_af70a606127592db44653637b896e5391}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classfsm__right_1_1_gripper_commander_aac3a996524cc05f9af186175e54c1c11}{go\+\_\+to\+\_\+pose\+\_\+goal}} (self, pose\+\_\+goal)
+\item 
+def \mbox{\hyperlink{classfsm__right_1_1_gripper_commander_a97c85643e5f6202bd87a3e639c234e4d}{add\+\_\+table}} (self, timeout=4)
+\item 
+def \mbox{\hyperlink{classfsm__right_1_1_gripper_commander_a5d88a06032500fa5470bc290726e41ab}{difference}} (self, a, b, threshold)
+\item 
+def \mbox{\hyperlink{classfsm__right_1_1_gripper_commander_afbeaf78b1d2d652bbb30e4f4f43aff17}{fsm}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfsm__right_1_1_gripper_commander_acfbd0c7a24a0220d8671723f44f1659e}{gripper}}
+\item 
+\mbox{\hyperlink{classfsm__right_1_1_gripper_commander_a00bdb5f95f14f3c4da7955dcce866188}{scene}}
+\item 
+\mbox{\hyperlink{classfsm__right_1_1_gripper_commander_a163f8a05653bb83db2f7b18b9306f740}{group\+\_\+name}}
+\item 
+\mbox{\hyperlink{classfsm__right_1_1_gripper_commander_a8d106c90c37e7d491ef13069a4f9eb1b}{move\+\_\+group}}
+\item 
+\mbox{\hyperlink{classfsm__right_1_1_gripper_commander_aca2fc259083ef3e768d080150b91df17}{planning\+\_\+frame}}
+\item 
+\mbox{\hyperlink{classfsm__right_1_1_gripper_commander_a066c2c1f67bde3e38f714162e866f378}{eef\+\_\+link}}
+\item 
+\mbox{\hyperlink{classfsm__right_1_1_gripper_commander_a31fb8a8d116e9c03fd23824544dfb4cd}{group\+\_\+names}}
+\item 
+\mbox{\hyperlink{classfsm__right_1_1_gripper_commander_a8d777fb8528b225c861cf875ec601f72}{box\+\_\+name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}This is a the class representing the implementation of the right Gripper commander
+
+param object: None
+:type object: class:`GripperCommander`
+:param name: scene
+:type name: Any
+:param name: group_name referring to the right arm group
+:type str
+:param name: move_group
+:type Any
+:param name: planning_frame
+:type Any
+:param name: eef_link
+:type Any
+:param name: group_names
+:type str
+:param name: box_name the name of the box 
+:type str\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_af70a606127592db44653637b896e5391}\label{classfsm__right_1_1_gripper_commander_af70a606127592db44653637b896e5391}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def fsm\+\_\+right.\+Gripper\+Commander.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_a97c85643e5f6202bd87a3e639c234e4d}\label{classfsm__right_1_1_gripper_commander_a97c85643e5f6202bd87a3e639c234e4d}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!add\_table@{add\_table}}
+\index{add\_table@{add\_table}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{add\_table()}{add\_table()}}
+{\footnotesize\ttfamily def fsm\+\_\+right.\+Gripper\+Commander.\+add\+\_\+table (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{timeout = {\ttfamily 4} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the add_table function:
+   
+This method is used to add to the scene fixed obstacles
+   
+    
+Args :
+     timeout
+    
+Returns :
+     None\end{DoxyVerb}
+ \mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_a5d88a06032500fa5470bc290726e41ab}\label{classfsm__right_1_1_gripper_commander_a5d88a06032500fa5470bc290726e41ab}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!difference@{difference}}
+\index{difference@{difference}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{difference()}{difference()}}
+{\footnotesize\ttfamily def fsm\+\_\+right.\+Gripper\+Commander.\+difference (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{a,  }\item[{}]{b,  }\item[{}]{threshold }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the difference function:
+   
+return true if the distance is smaller then the threshold
+   
+    
+Args :
+     a(float64)
+     b(float64)
+     threshold(float64)
+    
+Returns :
+     bool\end{DoxyVerb}
+ \mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_afbeaf78b1d2d652bbb30e4f4f43aff17}\label{classfsm__right_1_1_gripper_commander_afbeaf78b1d2d652bbb30e4f4f43aff17}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!fsm@{fsm}}
+\index{fsm@{fsm}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{fsm()}{fsm()}}
+{\footnotesize\ttfamily def fsm\+\_\+right.\+Gripper\+Commander.\+fsm (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the fsm function:
+   
+In these function is contained the finite state machine of the node.
+   
+    
+Args :
+     None
+    
+Returns :
+     None\end{DoxyVerb}
+ \mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_aac3a996524cc05f9af186175e54c1c11}\label{classfsm__right_1_1_gripper_commander_aac3a996524cc05f9af186175e54c1c11}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!go\_to\_pose\_goal@{go\_to\_pose\_goal}}
+\index{go\_to\_pose\_goal@{go\_to\_pose\_goal}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{go\_to\_pose\_goal()}{go\_to\_pose\_goal()}}
+{\footnotesize\ttfamily def fsm\+\_\+right.\+Gripper\+Commander.\+go\+\_\+to\+\_\+pose\+\_\+goal (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pose\+\_\+goal }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the go_to_pose_goal function:
+   
+This function is used to ask to Moveit to generated a plan for reaching a goal position.
+Once the plan is retrived this is published on /baxter_movit_trajectory to make execute it
+   
+    
+Args :
+     pose_goal(Pose) is the position that the end effector should reaches
+    
+Returns :
+     None\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_a8d777fb8528b225c861cf875ec601f72}\label{classfsm__right_1_1_gripper_commander_a8d777fb8528b225c861cf875ec601f72}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!box\_name@{box\_name}}
+\index{box\_name@{box\_name}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{box\_name}{box\_name}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+Gripper\+Commander.\+box\+\_\+name}
+
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_a066c2c1f67bde3e38f714162e866f378}\label{classfsm__right_1_1_gripper_commander_a066c2c1f67bde3e38f714162e866f378}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!eef\_link@{eef\_link}}
+\index{eef\_link@{eef\_link}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{eef\_link}{eef\_link}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+Gripper\+Commander.\+eef\+\_\+link}
+
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_acfbd0c7a24a0220d8671723f44f1659e}\label{classfsm__right_1_1_gripper_commander_acfbd0c7a24a0220d8671723f44f1659e}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!gripper@{gripper}}
+\index{gripper@{gripper}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{gripper}{gripper}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+Gripper\+Commander.\+gripper}
+
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_a163f8a05653bb83db2f7b18b9306f740}\label{classfsm__right_1_1_gripper_commander_a163f8a05653bb83db2f7b18b9306f740}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!group\_name@{group\_name}}
+\index{group\_name@{group\_name}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{group\_name}{group\_name}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+Gripper\+Commander.\+group\+\_\+name}
+
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_a31fb8a8d116e9c03fd23824544dfb4cd}\label{classfsm__right_1_1_gripper_commander_a31fb8a8d116e9c03fd23824544dfb4cd}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!group\_names@{group\_names}}
+\index{group\_names@{group\_names}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{group\_names}{group\_names}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+Gripper\+Commander.\+group\+\_\+names}
+
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_a8d106c90c37e7d491ef13069a4f9eb1b}\label{classfsm__right_1_1_gripper_commander_a8d106c90c37e7d491ef13069a4f9eb1b}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!move\_group@{move\_group}}
+\index{move\_group@{move\_group}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{move\_group}{move\_group}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+Gripper\+Commander.\+move\+\_\+group}
+
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_aca2fc259083ef3e768d080150b91df17}\label{classfsm__right_1_1_gripper_commander_aca2fc259083ef3e768d080150b91df17}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!planning\_frame@{planning\_frame}}
+\index{planning\_frame@{planning\_frame}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{planning\_frame}{planning\_frame}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+Gripper\+Commander.\+planning\+\_\+frame}
+
+\mbox{\Hypertarget{classfsm__right_1_1_gripper_commander_a00bdb5f95f14f3c4da7955dcce866188}\label{classfsm__right_1_1_gripper_commander_a00bdb5f95f14f3c4da7955dcce866188}} 
+\index{fsm\_right.GripperCommander@{fsm\_right.GripperCommander}!scene@{scene}}
+\index{scene@{scene}!fsm\_right.GripperCommander@{fsm\_right.GripperCommander}}
+\doxysubsubsection{\texorpdfstring{scene}{scene}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+Gripper\+Commander.\+scene}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+scripts/\mbox{\hyperlink{fsm__right_8py}{fsm\+\_\+right.\+py}}\end{DoxyCompactItemize}

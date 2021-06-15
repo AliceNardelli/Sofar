@@ -1,0 +1,72 @@
+\hypertarget{fsm__left_8py}{}\doxysection{scripts/fsm\+\_\+left.py File Reference}
+\label{fsm__left_8py}\index{scripts/fsm\_left.py@{scripts/fsm\_left.py}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classfsm__left_1_1_gripper_commander}{fsm\+\_\+left.\+Gripper\+Commander}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacefsm__left}{fsm\+\_\+left}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacefsm__left_a7933ddcd833f9964cbd133099fcf7792}{fsm\+\_\+left.\+clbk\+\_\+array}} (msg)
+\item 
+def \mbox{\hyperlink{namespacefsm__left_a4ebe660a02f4a5c2d4593149e9c592e7}{fsm\+\_\+left.\+clbk\+\_\+ee}} (msg)
+\item 
+def \mbox{\hyperlink{namespacefsm__left_ae0f7abb827ee0b2c6a63eb6982bf8af7}{fsm\+\_\+left.\+clbk}} (req)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacefsm__left_a683da294f45c1392a3706a5863a5ff46}{fsm\+\_\+left.\+blocks\+\_\+array}} = \mbox{[}4, 4, 4, 4, 4\mbox{]}
+\item 
+int \mbox{\hyperlink{namespacefsm__left_a48c7555b5fc466d5f6c5f5e18b701ae4}{fsm\+\_\+left.\+state}} = 0
+\item 
+bool \mbox{\hyperlink{namespacefsm__left_a6b23a3269167494fc44332db9d2662a1}{fsm\+\_\+left.\+end}} = False
+\item 
+bool \mbox{\hyperlink{namespacefsm__left_a518ca3f1e9ae85793ad3aa50aa1ad906}{fsm\+\_\+left.\+working}} = False
+\item 
+list \mbox{\hyperlink{namespacefsm__left_a57cf4af0c99b731c7621066ce7983889}{fsm\+\_\+left.\+blocks\+\_\+id}} = \mbox{[}\textquotesingle{}C\textquotesingle{}, \textquotesingle{}E\textquotesingle{}, \textquotesingle{}G\textquotesingle{}, \textquotesingle{}I\textquotesingle{}, \textquotesingle{}M\textquotesingle{}\mbox{]}
+\item 
+int \mbox{\hyperlink{namespacefsm__left_af25812c38691ed8e5b8553f6ebaad0a0}{fsm\+\_\+left.\+selected\+\_\+position}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__left_a15ec7594c17885b34f55628fb708118b}{fsm\+\_\+left.\+x\+\_\+goal\+\_\+trans}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__left_a3b5d600fc0ec27d614fe684608fa3154}{fsm\+\_\+left.\+y\+\_\+goal\+\_\+trans}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__left_a8f595b62a9f028605c1f637fbb87aa3f}{fsm\+\_\+left.\+z\+\_\+goal\+\_\+trans}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__left_a5dee2805d971a3875efff5f93e9593ca}{fsm\+\_\+left.\+x\+\_\+box}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__left_abc7d215d14adac4fd1205bbbc606019b}{fsm\+\_\+left.\+y\+\_\+box}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__left_a2bebe63deffe918b9524b7e13e651b75}{fsm\+\_\+left.\+z\+\_\+box}} = 0
+\item 
+bool \mbox{\hyperlink{namespacefsm__left_a99c35ace79fc92a3555fb1ed273aaaa2}{fsm\+\_\+left.\+middleware}} = False
+\item 
+\mbox{\hyperlink{namespacefsm__left_a921987dcd68f37489aedda66a24b731a}{fsm\+\_\+left.\+s1}} = rospy.\+Service(\textquotesingle{}/occup\+\_\+middleware\textquotesingle{}, Empty, clbk)
+\item 
+\mbox{\hyperlink{namespacefsm__left_a9b4e68cb880f7cbd3765aa11c4f307b3}{fsm\+\_\+left.\+client\+\_\+mid}} = rospy.\+Service\+Proxy(\textquotesingle{}/free\+\_\+middleware\textquotesingle{}, Empty)
+\item 
+\mbox{\hyperlink{namespacefsm__left_a87e0c5acb183218a23564470b29fc296}{fsm\+\_\+left.\+client\+\_\+trans}} = rospy.\+Service\+Proxy(\textquotesingle{}/gl/transform\textquotesingle{}, Transformation)
+\item 
+\mbox{\hyperlink{namespacefsm__left_a62594b1d6fce97825e6f9bd274d6d88f}{fsm\+\_\+left.\+sub\+\_\+array}} = rospy.\+Subscriber(\char`\"{}/blocks\+\_\+state\char`\"{}, Blocks\+State, clbk\+\_\+array)
+\item 
+\mbox{\hyperlink{namespacefsm__left_ae662a247cc24b667a1415e409404c895}{fsm\+\_\+left.\+sub}} = rospy.\+Subscriber(\char`\"{}/left\+\_\+gripper\+\_\+pose\char`\"{}, Pose\+Stamped, clbk\+\_\+ee)
+\item 
+\mbox{\hyperlink{namespacefsm__left_a2576754b1cf2d2c6f8a2ffd4ede40837}{fsm\+\_\+left.\+pub}}
+\item 
+\mbox{\hyperlink{namespacefsm__left_ad41fc343b75ae8740123dfe64d4343c5}{fsm\+\_\+left.\+pub\+\_\+oc}}
+\item 
+\mbox{\hyperlink{namespacefsm__left_aea3a0ffe41c151527c327e411b06f922}{fsm\+\_\+left.\+g\+\_\+left}} = Gripper\+Commander()
+\item 
+\mbox{\hyperlink{namespacefsm__left_af5b90ca741e2710964215e10d6c61adf}{fsm\+\_\+left.\+msg\+\_\+oc}} = Bool()
+\item 
+\mbox{\hyperlink{namespacefsm__left_ad01df5bc071ae40561907a68044bf6b5}{fsm\+\_\+left.\+data}}
+\item 
+\mbox{\hyperlink{namespacefsm__left_ac9ef200c2c7bd9b8dc3e44d75708a687}{fsm\+\_\+left.\+rate}} = rospy.\+Rate(10)
+\end{DoxyCompactItemize}

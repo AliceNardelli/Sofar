@@ -1,0 +1,104 @@
+\hypertarget{namespacetf__listener}{}\doxysection{tf\+\_\+listener Namespace Reference}
+\label{namespacetf__listener}\index{tf\_listener@{tf\_listener}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetf__listener_a6a42e9857f2b84746a361a48a699a21b}{clbk}} (req)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetf__listener_a3d214b73fdb62282a9b1e104e47e4940}{tf\+Buffer}} = tf2\+\_\+ros.\+Buffer()
+\item 
+\mbox{\hyperlink{namespacetf__listener_a0676c32e513bee8a437e9f1728d72c1e}{listener}} = tf2\+\_\+ros.\+Transform\+Listener(\mbox{\hyperlink{namespacetf__listener_a3d214b73fdb62282a9b1e104e47e4940}{tf\+Buffer}})
+\item 
+\mbox{\hyperlink{namespacetf__listener_a1d6055fdd3f8e2a535e6405e2312f102}{s1}} = rospy.\+Service(\textquotesingle{}/gl/transform\textquotesingle{}, Transformation, \mbox{\hyperlink{namespacetf__listener_a6a42e9857f2b84746a361a48a699a21b}{clbk}})
+\item 
+\mbox{\hyperlink{namespacetf__listener_abdbab818599d57e3df9eb92471eef3f0}{s2}} = rospy.\+Service(\textquotesingle{}/gr/transform\textquotesingle{}, Transformation, \mbox{\hyperlink{namespacetf__listener_a6a42e9857f2b84746a361a48a699a21b}{clbk}})
+\item 
+\mbox{\hyperlink{namespacetf__listener_aa02eca2aac97dc681caee9ad43db2255}{rate}} = rospy.\+Rate(20)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}.. module:: tf_listener
+:platform: Unix
+:synopsis: Python module for implementing the transfromation frame tf_listener
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+              Alice Nardelli - alice.nardelli98@gmail.com
+              Federico Civetta - fedeunivers@gmail.com
+              Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+
+This is a service node which is charachterized as follows:
+1. as request:  it listens the object transformations  from tf_publisher.py and 
+2. as response: it sends the listened object tranformations to another nodes.
+
+
+Subscribes to:
+ /blocks_state
+ /left_gripper_pose
+
+Publishes to:
+None
+None
+
+Service :
+ /gl/transform 
+ /gr/transform
+
+Clients:
+ None\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetf__listener_a6a42e9857f2b84746a361a48a699a21b}\label{namespacetf__listener_a6a42e9857f2b84746a361a48a699a21b}} 
+\index{tf\_listener@{tf\_listener}!clbk@{clbk}}
+\index{clbk@{clbk}!tf\_listener@{tf\_listener}}
+\doxysubsubsection{\texorpdfstring{clbk()}{clbk()}}
+{\footnotesize\ttfamily def tf\+\_\+listener.\+clbk (\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the clbk function:
+       
+Inside the callback of the service it is firstly takes as request the needed frame. Then il listen for the tranformation done through lookup_transform method. 
+Finally return as result the obtained transformation.
+
+Args :
+         req(str) it takes as argument the string related to the frame that client desires to transform
+
+Returns :
+         t(TransformedStamped) it \end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetf__listener_a0676c32e513bee8a437e9f1728d72c1e}\label{namespacetf__listener_a0676c32e513bee8a437e9f1728d72c1e}} 
+\index{tf\_listener@{tf\_listener}!listener@{listener}}
+\index{listener@{listener}!tf\_listener@{tf\_listener}}
+\doxysubsubsection{\texorpdfstring{listener}{listener}}
+{\footnotesize\ttfamily tf\+\_\+listener.\+listener = tf2\+\_\+ros.\+Transform\+Listener(\mbox{\hyperlink{namespacetf__listener_a3d214b73fdb62282a9b1e104e47e4940}{tf\+Buffer}})}
+
+\mbox{\Hypertarget{namespacetf__listener_aa02eca2aac97dc681caee9ad43db2255}\label{namespacetf__listener_aa02eca2aac97dc681caee9ad43db2255}} 
+\index{tf\_listener@{tf\_listener}!rate@{rate}}
+\index{rate@{rate}!tf\_listener@{tf\_listener}}
+\doxysubsubsection{\texorpdfstring{rate}{rate}}
+{\footnotesize\ttfamily tf\+\_\+listener.\+rate = rospy.\+Rate(20)}
+
+\mbox{\Hypertarget{namespacetf__listener_a1d6055fdd3f8e2a535e6405e2312f102}\label{namespacetf__listener_a1d6055fdd3f8e2a535e6405e2312f102}} 
+\index{tf\_listener@{tf\_listener}!s1@{s1}}
+\index{s1@{s1}!tf\_listener@{tf\_listener}}
+\doxysubsubsection{\texorpdfstring{s1}{s1}}
+{\footnotesize\ttfamily tf\+\_\+listener.\+s1 = rospy.\+Service(\textquotesingle{}/gl/transform\textquotesingle{}, Transformation, \mbox{\hyperlink{namespacetf__listener_a6a42e9857f2b84746a361a48a699a21b}{clbk}})}
+
+\mbox{\Hypertarget{namespacetf__listener_abdbab818599d57e3df9eb92471eef3f0}\label{namespacetf__listener_abdbab818599d57e3df9eb92471eef3f0}} 
+\index{tf\_listener@{tf\_listener}!s2@{s2}}
+\index{s2@{s2}!tf\_listener@{tf\_listener}}
+\doxysubsubsection{\texorpdfstring{s2}{s2}}
+{\footnotesize\ttfamily tf\+\_\+listener.\+s2 = rospy.\+Service(\textquotesingle{}/gr/transform\textquotesingle{}, Transformation, \mbox{\hyperlink{namespacetf__listener_a6a42e9857f2b84746a361a48a699a21b}{clbk}})}
+
+\mbox{\Hypertarget{namespacetf__listener_a3d214b73fdb62282a9b1e104e47e4940}\label{namespacetf__listener_a3d214b73fdb62282a9b1e104e47e4940}} 
+\index{tf\_listener@{tf\_listener}!tfBuffer@{tfBuffer}}
+\index{tfBuffer@{tfBuffer}!tf\_listener@{tf\_listener}}
+\doxysubsubsection{\texorpdfstring{tfBuffer}{tfBuffer}}
+{\footnotesize\ttfamily tf\+\_\+listener.\+tf\+Buffer = tf2\+\_\+ros.\+Buffer()}
+

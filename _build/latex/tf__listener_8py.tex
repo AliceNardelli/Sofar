@@ -1,0 +1,25 @@
+\hypertarget{tf__listener_8py}{}\doxysection{scripts/tf\+\_\+listener.py File Reference}
+\label{tf__listener_8py}\index{scripts/tf\_listener.py@{scripts/tf\_listener.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacetf__listener}{tf\+\_\+listener}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetf__listener_a6a42e9857f2b84746a361a48a699a21b}{tf\+\_\+listener.\+clbk}} (req)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetf__listener_a3d214b73fdb62282a9b1e104e47e4940}{tf\+\_\+listener.\+tf\+Buffer}} = tf2\+\_\+ros.\+Buffer()
+\item 
+\mbox{\hyperlink{namespacetf__listener_a0676c32e513bee8a437e9f1728d72c1e}{tf\+\_\+listener.\+listener}} = tf2\+\_\+ros.\+Transform\+Listener(tf\+Buffer)
+\item 
+\mbox{\hyperlink{namespacetf__listener_a1d6055fdd3f8e2a535e6405e2312f102}{tf\+\_\+listener.\+s1}} = rospy.\+Service(\textquotesingle{}/gl/transform\textquotesingle{}, Transformation, clbk)
+\item 
+\mbox{\hyperlink{namespacetf__listener_abdbab818599d57e3df9eb92471eef3f0}{tf\+\_\+listener.\+s2}} = rospy.\+Service(\textquotesingle{}/gr/transform\textquotesingle{}, Transformation, clbk)
+\item 
+\mbox{\hyperlink{namespacetf__listener_aa02eca2aac97dc681caee9ad43db2255}{tf\+\_\+listener.\+rate}} = rospy.\+Rate(20)
+\end{DoxyCompactItemize}

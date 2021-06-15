@@ -1,0 +1,310 @@
+\hypertarget{namespacefsm__right}{}\doxysection{fsm\+\_\+right Namespace Reference}
+\label{namespacefsm__right}\index{fsm\_right@{fsm\_right}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classfsm__right_1_1_gripper_commander}{Gripper\+Commander}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacefsm__right_a8b6b9693b611808eeb59395c1aa75b0b}{clbk\+\_\+array}} (msg)
+\item 
+def \mbox{\hyperlink{namespacefsm__right_a8ced5e18fc431c5dacc370101e26e491}{clbk\+\_\+ee}} (msg)
+\item 
+def \mbox{\hyperlink{namespacefsm__right_a3c3bb6e7a5b8804440e17369e90c9a9d}{clbk}} (req)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacefsm__right_af0c0578d9fcc972abc4847beee135dc4}{blocks\+\_\+array}} = \mbox{[}4, 4, 4, 4, 4\mbox{]}
+\item 
+int \mbox{\hyperlink{namespacefsm__right_a3327864dbf414f4b115aea8eae23272e}{state}} = 0
+\item 
+bool \mbox{\hyperlink{namespacefsm__right_aa11a6eafdf5b9a39cffbe128ad2366c5}{end}} = False
+\item 
+bool \mbox{\hyperlink{namespacefsm__right_a8a370a1d5a09e234fcc815523c76f362}{working}} = False
+\item 
+list \mbox{\hyperlink{namespacefsm__right_ae1931abb8b1e95c0bd3c6a8f490fd9a2}{blocks\+\_\+id}} = \mbox{[}\textquotesingle{}C\textquotesingle{}, \textquotesingle{}E\textquotesingle{}, \textquotesingle{}G\textquotesingle{}, \textquotesingle{}I\textquotesingle{}, \textquotesingle{}M\textquotesingle{}\mbox{]}
+\item 
+int \mbox{\hyperlink{namespacefsm__right_afa49cf25bbf192c35cfb2947d5c90380}{selected\+\_\+position}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__right_a3c039b84f1a07c56dc767fbef58e2e34}{x\+\_\+goal\+\_\+trans}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__right_af0b6f4cd275ecadd8834b598fea48ce2}{y\+\_\+goal\+\_\+trans}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__right_abd1c7ef0ecbf8c4b16c417c2911bf72c}{z\+\_\+goal\+\_\+trans}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__right_ab06156da63ad0433b251e457feb7f86c}{x\+\_\+mid}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__right_aab4da5ef2e308b9b37aaea6f95e3803f}{y\+\_\+mid}} = 0
+\item 
+int \mbox{\hyperlink{namespacefsm__right_aa172df876c4d9b61f86aa2d6437f6b86}{z\+\_\+mid}} = 0
+\item 
+bool \mbox{\hyperlink{namespacefsm__right_ac957c6c76fe1f34efad8f727ca134b22}{middleware}} = True
+\item 
+\mbox{\hyperlink{namespacefsm__right_abe1c3d1a04b39d3a20257993616a8162}{s1}} = rospy.\+Service(\textquotesingle{}/free\+\_\+middleware\textquotesingle{}, Empty, \mbox{\hyperlink{namespacefsm__right_a3c3bb6e7a5b8804440e17369e90c9a9d}{clbk}})
+\item 
+\mbox{\hyperlink{namespacefsm__right_a8281f4fb64c1b8024000520d9a39fd40}{client\+\_\+mid}} = rospy.\+Service\+Proxy(\textquotesingle{}/occup\+\_\+middleware\textquotesingle{}, Empty)
+\item 
+\mbox{\hyperlink{namespacefsm__right_a06afffa61b1fbc7e08f7916f51ad0ef3}{client\+\_\+trans}} = rospy.\+Service\+Proxy(\textquotesingle{}/gr/transform\textquotesingle{}, Transformation)
+\item 
+\mbox{\hyperlink{namespacefsm__right_a6ece51e4844ed221c6f872c730895ba4}{sub\+\_\+array}} = rospy.\+Subscriber(\char`\"{}/blocks\+\_\+state\char`\"{}, Blocks\+State, \mbox{\hyperlink{namespacefsm__right_a8b6b9693b611808eeb59395c1aa75b0b}{clbk\+\_\+array}})
+\item 
+\mbox{\hyperlink{namespacefsm__right_abed44f449a452f90c1c7cd9a8255fbd3}{sub}} = rospy.\+Subscriber(\char`\"{}/right\+\_\+gripper\+\_\+pose\char`\"{}, Pose\+Stamped, \mbox{\hyperlink{namespacefsm__right_a8ced5e18fc431c5dacc370101e26e491}{clbk\+\_\+ee}})
+\item 
+\mbox{\hyperlink{namespacefsm__right_a325af06bce8a9f5680a78478ff03e4f9}{pub}}
+\item 
+\mbox{\hyperlink{namespacefsm__right_ad20cd90d66ecbec263630af036be0245}{pub\+\_\+oc}}
+\item 
+\mbox{\hyperlink{namespacefsm__right_a0326cf868b27715be7c92045983cc1d6}{msg\+\_\+oc}} = Bool()
+\item 
+\mbox{\hyperlink{namespacefsm__right_a0f63fb660caf89ef489fb2fe20930a75}{data}}
+\item 
+\mbox{\hyperlink{namespacefsm__right_a312e13db5bc250f4ee86ba441e86b16c}{g\+\_\+right}} = \mbox{\hyperlink{classfsm__right_1_1_gripper_commander}{Gripper\+Commander}}()
+\item 
+\mbox{\hyperlink{namespacefsm__right_ab69953802950a09cf9cea49576503125}{rate}} = rospy.\+Rate(10)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}.. module:: fsm_right
+    :platform: Unix
+    :synopsis: Python module for implementing the finite state machine of the right gripper 
+
+.. moduleauthor:: Giovanni Di Marco - imdimark@gmail.com
+                  Alice Nardelli - alice.nardelli98@gmail.com
+                  Federico Civetta - fedeunivers@gmail.com
+                  Iacopo Pietrasanta - iacopo.pietrasanta@gmail.com
+
+The ontology and the planner is done by the two finite state machines node.  We have decidedto implement a specific node for each gripper in order to manage them individually
+
+Subscribes to:
+     /blocks_state
+     /right_gripper_pose
+     /baxter_joint_states
+
+Publishes to:
+    /baxter_movit_trajectory
+    /open_close_right
+
+Service :
+     /occup_middleware 
+
+Clients:
+     /free_middleware
+     /gl/trnasform\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacefsm__right_a3c3bb6e7a5b8804440e17369e90c9a9d}\label{namespacefsm__right_a3c3bb6e7a5b8804440e17369e90c9a9d}} 
+\index{fsm\_right@{fsm\_right}!clbk@{clbk}}
+\index{clbk@{clbk}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{clbk()}{clbk()}}
+{\footnotesize\ttfamily def fsm\+\_\+right.\+clbk (\begin{DoxyParamCaption}\item[{}]{req }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the clbk function:
+       
+This function is the callback of the /free_middleware server. 
+Once the empty message is receive from client it means that the middle of the table is free.
+middleware variable is set to false
+       
+
+ Args :
+         req(Empty)
+
+Returns :
+         None\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacefsm__right_a8b6b9693b611808eeb59395c1aa75b0b}\label{namespacefsm__right_a8b6b9693b611808eeb59395c1aa75b0b}} 
+\index{fsm\_right@{fsm\_right}!clbk\_array@{clbk\_array}}
+\index{clbk\_array@{clbk\_array}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{clbk\_array()}{clbk\_array()}}
+{\footnotesize\ttfamily def fsm\+\_\+right.\+clbk\+\_\+array (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the clbk_array function:
+       
+continuously update the array in which are contained informations about blocks state
+       
+
+ Args :
+         msg(int64[]) the blocksarray field of BlocksState.msg
+
+Returns :
+         None\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacefsm__right_a8ced5e18fc431c5dacc370101e26e491}\label{namespacefsm__right_a8ced5e18fc431c5dacc370101e26e491}} 
+\index{fsm\_right@{fsm\_right}!clbk\_ee@{clbk\_ee}}
+\index{clbk\_ee@{clbk\_ee}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{clbk\_ee()}{clbk\_ee()}}
+{\footnotesize\ttfamily def fsm\+\_\+right.\+clbk\+\_\+ee (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the clbk_ee function:
+       
+Read the actual position of the end effector of the right gripper, and copy subscribed value inside a global variable.
+       
+
+ Args :
+         msg(PoseStamped)
+
+Returns :
+         None\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacefsm__right_af0c0578d9fcc972abc4847beee135dc4}\label{namespacefsm__right_af0c0578d9fcc972abc4847beee135dc4}} 
+\index{fsm\_right@{fsm\_right}!blocks\_array@{blocks\_array}}
+\index{blocks\_array@{blocks\_array}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{blocks\_array}{blocks\_array}}
+{\footnotesize\ttfamily list fsm\+\_\+right.\+blocks\+\_\+array = \mbox{[}4, 4, 4, 4, 4\mbox{]}}
+
+\mbox{\Hypertarget{namespacefsm__right_ae1931abb8b1e95c0bd3c6a8f490fd9a2}\label{namespacefsm__right_ae1931abb8b1e95c0bd3c6a8f490fd9a2}} 
+\index{fsm\_right@{fsm\_right}!blocks\_id@{blocks\_id}}
+\index{blocks\_id@{blocks\_id}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{blocks\_id}{blocks\_id}}
+{\footnotesize\ttfamily list fsm\+\_\+right.\+blocks\+\_\+id = \mbox{[}\textquotesingle{}C\textquotesingle{}, \textquotesingle{}E\textquotesingle{}, \textquotesingle{}G\textquotesingle{}, \textquotesingle{}I\textquotesingle{}, \textquotesingle{}M\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{namespacefsm__right_a8281f4fb64c1b8024000520d9a39fd40}\label{namespacefsm__right_a8281f4fb64c1b8024000520d9a39fd40}} 
+\index{fsm\_right@{fsm\_right}!client\_mid@{client\_mid}}
+\index{client\_mid@{client\_mid}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{client\_mid}{client\_mid}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+client\+\_\+mid = rospy.\+Service\+Proxy(\textquotesingle{}/occup\+\_\+middleware\textquotesingle{}, Empty)}
+
+\mbox{\Hypertarget{namespacefsm__right_a06afffa61b1fbc7e08f7916f51ad0ef3}\label{namespacefsm__right_a06afffa61b1fbc7e08f7916f51ad0ef3}} 
+\index{fsm\_right@{fsm\_right}!client\_trans@{client\_trans}}
+\index{client\_trans@{client\_trans}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{client\_trans}{client\_trans}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+client\+\_\+trans = rospy.\+Service\+Proxy(\textquotesingle{}/gr/transform\textquotesingle{}, Transformation)}
+
+\mbox{\Hypertarget{namespacefsm__right_a0f63fb660caf89ef489fb2fe20930a75}\label{namespacefsm__right_a0f63fb660caf89ef489fb2fe20930a75}} 
+\index{fsm\_right@{fsm\_right}!data@{data}}
+\index{data@{data}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+data}
+
+\mbox{\Hypertarget{namespacefsm__right_aa11a6eafdf5b9a39cffbe128ad2366c5}\label{namespacefsm__right_aa11a6eafdf5b9a39cffbe128ad2366c5}} 
+\index{fsm\_right@{fsm\_right}!end@{end}}
+\index{end@{end}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily bool fsm\+\_\+right.\+end = False}
+
+\mbox{\Hypertarget{namespacefsm__right_a312e13db5bc250f4ee86ba441e86b16c}\label{namespacefsm__right_a312e13db5bc250f4ee86ba441e86b16c}} 
+\index{fsm\_right@{fsm\_right}!g\_right@{g\_right}}
+\index{g\_right@{g\_right}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{g\_right}{g\_right}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+g\+\_\+right = \mbox{\hyperlink{classfsm__right_1_1_gripper_commander}{Gripper\+Commander}}()}
+
+\mbox{\Hypertarget{namespacefsm__right_ac957c6c76fe1f34efad8f727ca134b22}\label{namespacefsm__right_ac957c6c76fe1f34efad8f727ca134b22}} 
+\index{fsm\_right@{fsm\_right}!middleware@{middleware}}
+\index{middleware@{middleware}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{middleware}{middleware}}
+{\footnotesize\ttfamily bool fsm\+\_\+right.\+middleware = True}
+
+\mbox{\Hypertarget{namespacefsm__right_a0326cf868b27715be7c92045983cc1d6}\label{namespacefsm__right_a0326cf868b27715be7c92045983cc1d6}} 
+\index{fsm\_right@{fsm\_right}!msg\_oc@{msg\_oc}}
+\index{msg\_oc@{msg\_oc}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{msg\_oc}{msg\_oc}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+msg\+\_\+oc = Bool()}
+
+\mbox{\Hypertarget{namespacefsm__right_a325af06bce8a9f5680a78478ff03e4f9}\label{namespacefsm__right_a325af06bce8a9f5680a78478ff03e4f9}} 
+\index{fsm\_right@{fsm\_right}!pub@{pub}}
+\index{pub@{pub}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{pub}{pub}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+pub}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  rospy.Publisher(\textcolor{stringliteral}{'/baxter\_moveit\_trajectory'},}
+\DoxyCodeLine{2                           BaxterTrajectory,}
+\DoxyCodeLine{3                           queue\_size=20)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacefsm__right_ad20cd90d66ecbec263630af036be0245}\label{namespacefsm__right_ad20cd90d66ecbec263630af036be0245}} 
+\index{fsm\_right@{fsm\_right}!pub\_oc@{pub\_oc}}
+\index{pub\_oc@{pub\_oc}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{pub\_oc}{pub\_oc}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+pub\+\_\+oc}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  rospy.Publisher(\textcolor{stringliteral}{'/open\_close\_right'},}
+\DoxyCodeLine{2                           Bool,}
+\DoxyCodeLine{3                           queue\_size=20)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacefsm__right_ab69953802950a09cf9cea49576503125}\label{namespacefsm__right_ab69953802950a09cf9cea49576503125}} 
+\index{fsm\_right@{fsm\_right}!rate@{rate}}
+\index{rate@{rate}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{rate}{rate}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+rate = rospy.\+Rate(10)}
+
+\mbox{\Hypertarget{namespacefsm__right_abe1c3d1a04b39d3a20257993616a8162}\label{namespacefsm__right_abe1c3d1a04b39d3a20257993616a8162}} 
+\index{fsm\_right@{fsm\_right}!s1@{s1}}
+\index{s1@{s1}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{s1}{s1}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+s1 = rospy.\+Service(\textquotesingle{}/free\+\_\+middleware\textquotesingle{}, Empty, \mbox{\hyperlink{namespacefsm__right_a3c3bb6e7a5b8804440e17369e90c9a9d}{clbk}})}
+
+\mbox{\Hypertarget{namespacefsm__right_afa49cf25bbf192c35cfb2947d5c90380}\label{namespacefsm__right_afa49cf25bbf192c35cfb2947d5c90380}} 
+\index{fsm\_right@{fsm\_right}!selected\_position@{selected\_position}}
+\index{selected\_position@{selected\_position}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{selected\_position}{selected\_position}}
+{\footnotesize\ttfamily int fsm\+\_\+right.\+selected\+\_\+position = 0}
+
+\mbox{\Hypertarget{namespacefsm__right_a3327864dbf414f4b115aea8eae23272e}\label{namespacefsm__right_a3327864dbf414f4b115aea8eae23272e}} 
+\index{fsm\_right@{fsm\_right}!state@{state}}
+\index{state@{state}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily int fsm\+\_\+right.\+state = 0}
+
+\mbox{\Hypertarget{namespacefsm__right_abed44f449a452f90c1c7cd9a8255fbd3}\label{namespacefsm__right_abed44f449a452f90c1c7cd9a8255fbd3}} 
+\index{fsm\_right@{fsm\_right}!sub@{sub}}
+\index{sub@{sub}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{sub}{sub}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+sub = rospy.\+Subscriber(\char`\"{}/right\+\_\+gripper\+\_\+pose\char`\"{}, Pose\+Stamped, \mbox{\hyperlink{namespacefsm__right_a8ced5e18fc431c5dacc370101e26e491}{clbk\+\_\+ee}})}
+
+\mbox{\Hypertarget{namespacefsm__right_a6ece51e4844ed221c6f872c730895ba4}\label{namespacefsm__right_a6ece51e4844ed221c6f872c730895ba4}} 
+\index{fsm\_right@{fsm\_right}!sub\_array@{sub\_array}}
+\index{sub\_array@{sub\_array}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{sub\_array}{sub\_array}}
+{\footnotesize\ttfamily fsm\+\_\+right.\+sub\+\_\+array = rospy.\+Subscriber(\char`\"{}/blocks\+\_\+state\char`\"{}, Blocks\+State, \mbox{\hyperlink{namespacefsm__right_a8b6b9693b611808eeb59395c1aa75b0b}{clbk\+\_\+array}})}
+
+\mbox{\Hypertarget{namespacefsm__right_a8a370a1d5a09e234fcc815523c76f362}\label{namespacefsm__right_a8a370a1d5a09e234fcc815523c76f362}} 
+\index{fsm\_right@{fsm\_right}!working@{working}}
+\index{working@{working}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{working}{working}}
+{\footnotesize\ttfamily bool fsm\+\_\+right.\+working = False}
+
+\mbox{\Hypertarget{namespacefsm__right_a3c039b84f1a07c56dc767fbef58e2e34}\label{namespacefsm__right_a3c039b84f1a07c56dc767fbef58e2e34}} 
+\index{fsm\_right@{fsm\_right}!x\_goal\_trans@{x\_goal\_trans}}
+\index{x\_goal\_trans@{x\_goal\_trans}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{x\_goal\_trans}{x\_goal\_trans}}
+{\footnotesize\ttfamily int fsm\+\_\+right.\+x\+\_\+goal\+\_\+trans = 0}
+
+\mbox{\Hypertarget{namespacefsm__right_ab06156da63ad0433b251e457feb7f86c}\label{namespacefsm__right_ab06156da63ad0433b251e457feb7f86c}} 
+\index{fsm\_right@{fsm\_right}!x\_mid@{x\_mid}}
+\index{x\_mid@{x\_mid}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{x\_mid}{x\_mid}}
+{\footnotesize\ttfamily int fsm\+\_\+right.\+x\+\_\+mid = 0}
+
+\mbox{\Hypertarget{namespacefsm__right_af0b6f4cd275ecadd8834b598fea48ce2}\label{namespacefsm__right_af0b6f4cd275ecadd8834b598fea48ce2}} 
+\index{fsm\_right@{fsm\_right}!y\_goal\_trans@{y\_goal\_trans}}
+\index{y\_goal\_trans@{y\_goal\_trans}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{y\_goal\_trans}{y\_goal\_trans}}
+{\footnotesize\ttfamily int fsm\+\_\+right.\+y\+\_\+goal\+\_\+trans = 0}
+
+\mbox{\Hypertarget{namespacefsm__right_aab4da5ef2e308b9b37aaea6f95e3803f}\label{namespacefsm__right_aab4da5ef2e308b9b37aaea6f95e3803f}} 
+\index{fsm\_right@{fsm\_right}!y\_mid@{y\_mid}}
+\index{y\_mid@{y\_mid}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{y\_mid}{y\_mid}}
+{\footnotesize\ttfamily int fsm\+\_\+right.\+y\+\_\+mid = 0}
+
+\mbox{\Hypertarget{namespacefsm__right_abd1c7ef0ecbf8c4b16c417c2911bf72c}\label{namespacefsm__right_abd1c7ef0ecbf8c4b16c417c2911bf72c}} 
+\index{fsm\_right@{fsm\_right}!z\_goal\_trans@{z\_goal\_trans}}
+\index{z\_goal\_trans@{z\_goal\_trans}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{z\_goal\_trans}{z\_goal\_trans}}
+{\footnotesize\ttfamily int fsm\+\_\+right.\+z\+\_\+goal\+\_\+trans = 0}
+
+\mbox{\Hypertarget{namespacefsm__right_aa172df876c4d9b61f86aa2d6437f6b86}\label{namespacefsm__right_aa172df876c4d9b61f86aa2d6437f6b86}} 
+\index{fsm\_right@{fsm\_right}!z\_mid@{z\_mid}}
+\index{z\_mid@{z\_mid}!fsm\_right@{fsm\_right}}
+\doxysubsubsection{\texorpdfstring{z\_mid}{z\_mid}}
+{\footnotesize\ttfamily int fsm\+\_\+right.\+z\+\_\+mid = 0}
+

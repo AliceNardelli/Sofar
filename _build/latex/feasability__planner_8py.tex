@@ -1,0 +1,37 @@
+\hypertarget{feasability__planner_8py}{}\doxysection{scripts/feasability\+\_\+planner.py File Reference}
+\label{feasability__planner_8py}\index{scripts/feasability\_planner.py@{scripts/feasability\_planner.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacefeasability__planner}{feasability\+\_\+planner}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacefeasability__planner_a93be9c9002967cb05b870ca4560a0f7f}{feasability\+\_\+planner.\+distance\+\_\+between\+\_\+blocks}} (f\+\_\+block, s\+\_\+block, threshold)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacefeasability__planner_af1793bf410acb5956c40bcd6e6e9de38}{feasability\+\_\+planner.\+blocks\+\_\+state}} = \mbox{[}4, 4, 4, 4, 4\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacefeasability__planner_a8991f72a552677346a02efaec4c4649f}{feasability\+\_\+planner.\+blocks\+\_\+id}} = \mbox{[}\textquotesingle{}C\textquotesingle{}, \textquotesingle{}E\textquotesingle{}, \textquotesingle{}G\textquotesingle{}, \textquotesingle{}I\textquotesingle{}, \textquotesingle{}M\textquotesingle{}, \textquotesingle{}A\textquotesingle{}, \textquotesingle{}B\textquotesingle{}, \textquotesingle{}D\textquotesingle{}, \textquotesingle{}F\textquotesingle{}, \textquotesingle{}H\textquotesingle{}, \textquotesingle{}L\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacefeasability__planner_abf742c86114849a23d7df8e5924bb96a}{feasability\+\_\+planner.\+client\+\_\+trans}} = rospy.\+Service\+Proxy(\textquotesingle{}/gl/transform\textquotesingle{}, Transformation)
+\item 
+\mbox{\hyperlink{namespacefeasability__planner_a1384a9a4b4a1c4813214578cd8686b92}{feasability\+\_\+planner.\+pub}} = rospy.\+Publisher(\textquotesingle{}/blocks\+\_\+state\textquotesingle{}, Blocks\+State, queue\+\_\+size=1)
+\item 
+\mbox{\hyperlink{namespacefeasability__planner_a5d9274681041fa7f14e8ea36bdb36017}{feasability\+\_\+planner.\+state\+\_\+message}} = Blocks\+State()
+\item 
+bool \mbox{\hyperlink{namespacefeasability__planner_a1684af84805ccf664abe8c22b3c4cb42}{feasability\+\_\+planner.\+crowded}} = False
+\item 
+\mbox{\hyperlink{namespacefeasability__planner_a87ebf4e788f20e063a8ea78924889012}{feasability\+\_\+planner.\+rate}} = rospy.\+Rate(15)
+\item 
+\mbox{\hyperlink{namespacefeasability__planner_a13bfa2b043a9ec4ebe4ae37775335914}{feasability\+\_\+planner.\+blue\+\_\+box\+\_\+transformation}} = client\+\_\+trans(\textquotesingle{}Bluebox\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacefeasability__planner_a020cfe3122bc0476d1e8e294013dec18}{feasability\+\_\+planner.\+referred\+\_\+block}} = client\+\_\+trans(blocks\+\_\+id\mbox{[}i\mbox{]})
+\item 
+\mbox{\hyperlink{namespacefeasability__planner_ace9ef0d99ba1938a0dab99dbcf9e5585}{feasability\+\_\+planner.\+other\+\_\+block}} = client\+\_\+trans(blocks\+\_\+id\mbox{[}j\mbox{]})
+\item 
+\mbox{\hyperlink{namespacefeasability__planner_a48fadf269301e70cdda764dacc12ee00}{feasability\+\_\+planner.\+blocksarray}}
+\end{DoxyCompactItemize}

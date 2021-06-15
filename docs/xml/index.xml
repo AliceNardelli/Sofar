@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classfsm__left_1_1_gripper_commander" kind="class"><name>fsm_left::GripperCommander</name>
+    <member refid="classfsm__left_1_1_gripper_commander_1a369d64212c9285dba067d1d5b4d6e997" kind="variable"><name>gripper</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1a22e322d80eb5ef64403094049463d209" kind="variable"><name>scene</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1abf1e3f17825219445accef26b72e1bb9" kind="variable"><name>group_name</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1a1d6e4a02a50e4e1a40d739ff48f1b2ef" kind="variable"><name>move_group</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1ab8ce1170baae742c9a8d893a6c8a3460" kind="variable"><name>planning_frame</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1ab437c2b836ac7b88a174bf3d18802263" kind="variable"><name>eef_link</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1adcb45c0931d3809ab2da13e0f00a1211" kind="variable"><name>group_names</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1afdf2bcf02c04f374338fcdbf7a9040d2" kind="variable"><name>box_name</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1a5b8f19eaa731a3db9e091424c934fd8e" kind="function"><name>__init__</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1aeadb05aa17f037555ce48019bf25a3be" kind="function"><name>go_to_pose_goal</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1ad6209b9b5a002fd01b166b274a500293" kind="function"><name>add_table</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1a1e306bf502b36fa1a38fc8b575213251" kind="function"><name>difference</name></member>
+    <member refid="classfsm__left_1_1_gripper_commander_1ac6af3b18a9ec37a8df8fec33517e1808" kind="function"><name>fsm</name></member>
+  </compound>
+  <compound refid="classfsm__right_1_1_gripper_commander" kind="class"><name>fsm_right::GripperCommander</name>
+    <member refid="classfsm__right_1_1_gripper_commander_1acfbd0c7a24a0220d8671723f44f1659e" kind="variable"><name>gripper</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1a00bdb5f95f14f3c4da7955dcce866188" kind="variable"><name>scene</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1a163f8a05653bb83db2f7b18b9306f740" kind="variable"><name>group_name</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1a8d106c90c37e7d491ef13069a4f9eb1b" kind="variable"><name>move_group</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1aca2fc259083ef3e768d080150b91df17" kind="variable"><name>planning_frame</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1a066c2c1f67bde3e38f714162e866f378" kind="variable"><name>eef_link</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1a31fb8a8d116e9c03fd23824544dfb4cd" kind="variable"><name>group_names</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1a8d777fb8528b225c861cf875ec601f72" kind="variable"><name>box_name</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1af70a606127592db44653637b896e5391" kind="function"><name>__init__</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1aac3a996524cc05f9af186175e54c1c11" kind="function"><name>go_to_pose_goal</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1a97c85643e5f6202bd87a3e639c234e4d" kind="function"><name>add_table</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1a5d88a06032500fa5470bc290726e41ab" kind="function"><name>difference</name></member>
+    <member refid="classfsm__right_1_1_gripper_commander_1afbeaf78b1d2d652bbb30e4f4f43aff17" kind="function"><name>fsm</name></member>
+  </compound>
+  <compound refid="namespaceconf" kind="namespace"><name>conf</name>
+    <member refid="namespaceconf_1a332f430461432dc465213f884a1e4967" kind="variable"><name>shell</name></member>
+    <member refid="namespaceconf_1a45653c983098153b78e33600e39230eb" kind="variable"><name>project</name></member>
+    <member refid="namespaceconf_1a33fa97cf51dcb25970fbf53f10159589" kind="variable"><name>copyright</name></member>
+    <member refid="namespaceconf_1a637c239d256432248aa8d9f3ab0b8c52" kind="variable"><name>author</name></member>
+    <member refid="namespaceconf_1a325dc746d8bf05c54d26351c35a21d90" kind="variable"><name>release</name></member>
+    <member refid="namespaceconf_1ae475e080536acb271a0a0efe56c3ba42" kind="variable"><name>extensions</name></member>
+    <member refid="namespaceconf_1ae850ae634911b713e036b43894fdd525" kind="variable"><name>templates_path</name></member>
+    <member refid="namespaceconf_1a7ad48fb6f3e9b129c02346ea0d3527c1" kind="variable"><name>exclude_patterns</name></member>
+    <member refid="namespaceconf_1a7f1b143ff25817758abd21a7db110510" kind="variable"><name>html_theme</name></member>
+    <member refid="namespaceconf_1a3117edf4443d9b8c70a9f0f44294ba79" kind="variable"><name>highlight_language</name></member>
+    <member refid="namespaceconf_1a10af2a769eb3bd3322e874f677e435b1" kind="variable"><name>source_suffix</name></member>
+    <member refid="namespaceconf_1a6fcd7e5236f355b1e1a55f9d95988810" kind="variable"><name>master_doc</name></member>
+    <member refid="namespaceconf_1af4fb5d8851ccaade135c2668dd3ced41" kind="variable"><name>html_static_path</name></member>
+    <member refid="namespaceconf_1a8375f4f963de3ac8026eaa9beced9564" kind="variable"><name>intersphinx_mapping</name></member>
+    <member refid="namespaceconf_1a8fe7f0d85f975f4ecba5cb6066959a09" kind="variable"><name>todo_include_todos</name></member>
+    <member refid="namespaceconf_1acb47d2c0c2904fa7d36b63142533f383" kind="variable"><name>breathe_projects</name></member>
+    <member refid="namespaceconf_1a6eba2d2c7ae923054b1c49e686ec89b9" kind="variable"><name>breathe_default_project</name></member>
+    <member refid="namespaceconf_1a54585428ce84441199d9dfd7087e2243" kind="variable"><name>breathe_default_members</name></member>
+  </compound>
+  <compound refid="namespacefeasability__planner" kind="namespace"><name>feasability_planner</name>
+    <member refid="namespacefeasability__planner_1af1793bf410acb5956c40bcd6e6e9de38" kind="variable"><name>blocks_state</name></member>
+    <member refid="namespacefeasability__planner_1a8991f72a552677346a02efaec4c4649f" kind="variable"><name>blocks_id</name></member>
+    <member refid="namespacefeasability__planner_1abf742c86114849a23d7df8e5924bb96a" kind="variable"><name>client_trans</name></member>
+    <member refid="namespacefeasability__planner_1a1384a9a4b4a1c4813214578cd8686b92" kind="variable"><name>pub</name></member>
+    <member refid="namespacefeasability__planner_1a5d9274681041fa7f14e8ea36bdb36017" kind="variable"><name>state_message</name></member>
+    <member refid="namespacefeasability__planner_1a1684af84805ccf664abe8c22b3c4cb42" kind="variable"><name>crowded</name></member>
+    <member refid="namespacefeasability__planner_1a87ebf4e788f20e063a8ea78924889012" kind="variable"><name>rate</name></member>
+    <member refid="namespacefeasability__planner_1a13bfa2b043a9ec4ebe4ae37775335914" kind="variable"><name>blue_box_transformation</name></member>
+    <member refid="namespacefeasability__planner_1a020cfe3122bc0476d1e8e294013dec18" kind="variable"><name>referred_block</name></member>
+    <member refid="namespacefeasability__planner_1ace9ef0d99ba1938a0dab99dbcf9e5585" kind="variable"><name>other_block</name></member>
+    <member refid="namespacefeasability__planner_1a48fadf269301e70cdda764dacc12ee00" kind="variable"><name>blocksarray</name></member>
+    <member refid="namespacefeasability__planner_1a93be9c9002967cb05b870ca4560a0f7f" kind="function"><name>distance_between_blocks</name></member>
+  </compound>
+  <compound refid="namespacefsm__left" kind="namespace"><name>fsm_left</name>
+    <member refid="namespacefsm__left_1a683da294f45c1392a3706a5863a5ff46" kind="variable"><name>blocks_array</name></member>
+    <member refid="namespacefsm__left_1a48c7555b5fc466d5f6c5f5e18b701ae4" kind="variable"><name>state</name></member>
+    <member refid="namespacefsm__left_1a6b23a3269167494fc44332db9d2662a1" kind="variable"><name>end</name></member>
+    <member refid="namespacefsm__left_1a518ca3f1e9ae85793ad3aa50aa1ad906" kind="variable"><name>working</name></member>
+    <member refid="namespacefsm__left_1a57cf4af0c99b731c7621066ce7983889" kind="variable"><name>blocks_id</name></member>
+    <member refid="namespacefsm__left_1af25812c38691ed8e5b8553f6ebaad0a0" kind="variable"><name>selected_position</name></member>
+    <member refid="namespacefsm__left_1a15ec7594c17885b34f55628fb708118b" kind="variable"><name>x_goal_trans</name></member>
+    <member refid="namespacefsm__left_1a3b5d600fc0ec27d614fe684608fa3154" kind="variable"><name>y_goal_trans</name></member>
+    <member refid="namespacefsm__left_1a8f595b62a9f028605c1f637fbb87aa3f" kind="variable"><name>z_goal_trans</name></member>
+    <member refid="namespacefsm__left_1a5dee2805d971a3875efff5f93e9593ca" kind="variable"><name>x_box</name></member>
+    <member refid="namespacefsm__left_1abc7d215d14adac4fd1205bbbc606019b" kind="variable"><name>y_box</name></member>
+    <member refid="namespacefsm__left_1a2bebe63deffe918b9524b7e13e651b75" kind="variable"><name>z_box</name></member>
+    <member refid="namespacefsm__left_1a99c35ace79fc92a3555fb1ed273aaaa2" kind="variable"><name>middleware</name></member>
+    <member refid="namespacefsm__left_1a921987dcd68f37489aedda66a24b731a" kind="variable"><name>s1</name></member>
+    <member refid="namespacefsm__left_1a9b4e68cb880f7cbd3765aa11c4f307b3" kind="variable"><name>client_mid</name></member>
+    <member refid="namespacefsm__left_1a87e0c5acb183218a23564470b29fc296" kind="variable"><name>client_trans</name></member>
+    <member refid="namespacefsm__left_1a62594b1d6fce97825e6f9bd274d6d88f" kind="variable"><name>sub_array</name></member>
+    <member refid="namespacefsm__left_1ae662a247cc24b667a1415e409404c895" kind="variable"><name>sub</name></member>
+    <member refid="namespacefsm__left_1a2576754b1cf2d2c6f8a2ffd4ede40837" kind="variable"><name>pub</name></member>
+    <member refid="namespacefsm__left_1ad41fc343b75ae8740123dfe64d4343c5" kind="variable"><name>pub_oc</name></member>
+    <member refid="namespacefsm__left_1aea3a0ffe41c151527c327e411b06f922" kind="variable"><name>g_left</name></member>
+    <member refid="namespacefsm__left_1af5b90ca741e2710964215e10d6c61adf" kind="variable"><name>msg_oc</name></member>
+    <member refid="namespacefsm__left_1ad01df5bc071ae40561907a68044bf6b5" kind="variable"><name>data</name></member>
+    <member refid="namespacefsm__left_1ac9ef200c2c7bd9b8dc3e44d75708a687" kind="variable"><name>rate</name></member>
+    <member refid="namespacefsm__left_1a7933ddcd833f9964cbd133099fcf7792" kind="function"><name>clbk_array</name></member>
+    <member refid="namespacefsm__left_1a4ebe660a02f4a5c2d4593149e9c592e7" kind="function"><name>clbk_ee</name></member>
+    <member refid="namespacefsm__left_1ae0f7abb827ee0b2c6a63eb6982bf8af7" kind="function"><name>clbk</name></member>
+  </compound>
+  <compound refid="namespacefsm__right" kind="namespace"><name>fsm_right</name>
+    <member refid="namespacefsm__right_1af0c0578d9fcc972abc4847beee135dc4" kind="variable"><name>blocks_array</name></member>
+    <member refid="namespacefsm__right_1a3327864dbf414f4b115aea8eae23272e" kind="variable"><name>state</name></member>
+    <member refid="namespacefsm__right_1aa11a6eafdf5b9a39cffbe128ad2366c5" kind="variable"><name>end</name></member>
+    <member refid="namespacefsm__right_1a8a370a1d5a09e234fcc815523c76f362" kind="variable"><name>working</name></member>
+    <member refid="namespacefsm__right_1ae1931abb8b1e95c0bd3c6a8f490fd9a2" kind="variable"><name>blocks_id</name></member>
+    <member refid="namespacefsm__right_1afa49cf25bbf192c35cfb2947d5c90380" kind="variable"><name>selected_position</name></member>
+    <member refid="namespacefsm__right_1a3c039b84f1a07c56dc767fbef58e2e34" kind="variable"><name>x_goal_trans</name></member>
+    <member refid="namespacefsm__right_1af0b6f4cd275ecadd8834b598fea48ce2" kind="variable"><name>y_goal_trans</name></member>
+    <member refid="namespacefsm__right_1abd1c7ef0ecbf8c4b16c417c2911bf72c" kind="variable"><name>z_goal_trans</name></member>
+    <member refid="namespacefsm__right_1ab06156da63ad0433b251e457feb7f86c" kind="variable"><name>x_mid</name></member>
+    <member refid="namespacefsm__right_1aab4da5ef2e308b9b37aaea6f95e3803f" kind="variable"><name>y_mid</name></member>
+    <member refid="namespacefsm__right_1aa172df876c4d9b61f86aa2d6437f6b86" kind="variable"><name>z_mid</name></member>
+    <member refid="namespacefsm__right_1ac957c6c76fe1f34efad8f727ca134b22" kind="variable"><name>middleware</name></member>
+    <member refid="namespacefsm__right_1abe1c3d1a04b39d3a20257993616a8162" kind="variable"><name>s1</name></member>
+    <member refid="namespacefsm__right_1a8281f4fb64c1b8024000520d9a39fd40" kind="variable"><name>client_mid</name></member>
+    <member refid="namespacefsm__right_1a06afffa61b1fbc7e08f7916f51ad0ef3" kind="variable"><name>client_trans</name></member>
+    <member refid="namespacefsm__right_1a6ece51e4844ed221c6f872c730895ba4" kind="variable"><name>sub_array</name></member>
+    <member refid="namespacefsm__right_1abed44f449a452f90c1c7cd9a8255fbd3" kind="variable"><name>sub</name></member>
+    <member refid="namespacefsm__right_1a325af06bce8a9f5680a78478ff03e4f9" kind="variable"><name>pub</name></member>
+    <member refid="namespacefsm__right_1ad20cd90d66ecbec263630af036be0245" kind="variable"><name>pub_oc</name></member>
+    <member refid="namespacefsm__right_1a0326cf868b27715be7c92045983cc1d6" kind="variable"><name>msg_oc</name></member>
+    <member refid="namespacefsm__right_1a0f63fb660caf89ef489fb2fe20930a75" kind="variable"><name>data</name></member>
+    <member refid="namespacefsm__right_1a312e13db5bc250f4ee86ba441e86b16c" kind="variable"><name>g_right</name></member>
+    <member refid="namespacefsm__right_1ab69953802950a09cf9cea49576503125" kind="variable"><name>rate</name></member>
+    <member refid="namespacefsm__right_1a8b6b9693b611808eeb59395c1aa75b0b" kind="function"><name>clbk_array</name></member>
+    <member refid="namespacefsm__right_1a8ced5e18fc431c5dacc370101e26e491" kind="function"><name>clbk_ee</name></member>
+    <member refid="namespacefsm__right_1a3c3bb6e7a5b8804440e17369e90c9a9d" kind="function"><name>clbk</name></member>
+  </compound>
+  <compound refid="namespaceserver__endpoint__hrc" kind="namespace"><name>server_endpoint_hrc</name>
+    <member refid="namespaceserver__endpoint__hrc_1a880633168872fbbbfc959ef2e6ccfa9b" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="namespacestd__msgs_1_1msg" kind="namespace"><name>std_msgs::msg</name>
+  </compound>
+  <compound refid="namespacestd__srvs_1_1srv" kind="namespace"><name>std_srvs::srv</name>
+  </compound>
+  <compound refid="namespacetf__listener" kind="namespace"><name>tf_listener</name>
+    <member refid="namespacetf__listener_1a3d214b73fdb62282a9b1e104e47e4940" kind="variable"><name>tfBuffer</name></member>
+    <member refid="namespacetf__listener_1a0676c32e513bee8a437e9f1728d72c1e" kind="variable"><name>listener</name></member>
+    <member refid="namespacetf__listener_1a1d6055fdd3f8e2a535e6405e2312f102" kind="variable"><name>s1</name></member>
+    <member refid="namespacetf__listener_1abdbab818599d57e3df9eb92471eef3f0" kind="variable"><name>s2</name></member>
+    <member refid="namespacetf__listener_1aa02eca2aac97dc681caee9ad43db2255" kind="variable"><name>rate</name></member>
+    <member refid="namespacetf__listener_1a6a42e9857f2b84746a361a48a699a21b" kind="function"><name>clbk</name></member>
+  </compound>
+  <compound refid="namespacetf__publisher" kind="namespace"><name>tf_publisher</name>
+    <member refid="namespacetf__publisher_1a098794c1bd6d8a62f91a6672b0f44cf6" kind="function"><name>publish_frames</name></member>
+  </compound>
+  <compound refid="index_8rst_8txt" kind="file"><name>index.rst.txt</name>
+    <member refid="index_8rst_8txt_1ad6a414deb8a655fe8644377f2e9cf4e9" kind="variable"><name>file</name></member>
+    <member refid="index_8rst_8txt_1a78044e1effdffa1a94741ad37b6b2e42" kind="variable"><name>Jun</name></member>
+  </compound>
+  <compound refid="_c_make_lists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="_c_make_lists_8txt_1a338d738b6e3b4ded73ed115121deb824" kind="function"><name>cmake_minimum_required</name></member>
+    <member refid="_c_make_lists_8txt_1a006402f396238605f7b9d1a5febdad40" kind="function"><name>install</name></member>
+  </compound>
+  <compound refid="conf_8py" kind="file"><name>conf.py</name>
+  </compound>
+  <compound refid="feasability__planner_8py" kind="file"><name>feasability_planner.py</name>
+  </compound>
+  <compound refid="fsm__left_8py" kind="file"><name>fsm_left.py</name>
+  </compound>
+  <compound refid="fsm__right_8py" kind="file"><name>fsm_right.py</name>
+  </compound>
+  <compound refid="server__endpoint__hrc_8py" kind="file"><name>server_endpoint_hrc.py</name>
+  </compound>
+  <compound refid="tf__listener_8py" kind="file"><name>tf_listener.py</name>
+  </compound>
+  <compound refid="tf__publisher_8py" kind="file"><name>tf_publisher.py</name>
+  </compound>
+  <compound refid="dir_45b9293d3daaa82c00b5908f14ebb805" kind="dir"><name>_build</name>
+  </compound>
+  <compound refid="dir_02bdb4005edb5055ba0ef39c3e2b4a3d" kind="dir"><name>_build/html/_sources</name>
+  </compound>
+  <compound refid="dir_63358181ce567149a79d24bdd45b3e93" kind="dir"><name>_build/html</name>
+  </compound>
+  <compound refid="dir_53e6fa9553ac22a5646d2a2b2d7b97a1" kind="dir"><name>scripts</name>
+  </compound>
+</doxygenindex>
