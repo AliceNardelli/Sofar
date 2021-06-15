@@ -30,20 +30,20 @@ import rospy
 
 # Because of transformations
 import tf_conversions
-
 import tf2_ros
 import geometry_msgs.msg
 from human_baxter_collaboration.msg import UnityTf
 
 def publish_frames(msg):
     """
-    Description of the '' function:
+    Description of the publish_frame function:
            
-    lore ipsum
+    This function compute the transform within the 
+    world frame
            
     
      Args :
-             None
+             msg(TransformStamped) contains the trasnform
     
     Returns :
              None
